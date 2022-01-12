@@ -16,9 +16,8 @@ const (
 	blackIndex = 1 // next color in palette
 )
 
-func lissajous(out io.Writer) {
+func lissajous(out io.Writer, cycles float64) {
 	const (
-		cycles  = 5     // number of complete x oscillator revoutions
 		res     = 0.001 // angular revolution
 		size    = 100   // image canvas covers [-size..+size]
 		nframes = 64    // number of animation frames

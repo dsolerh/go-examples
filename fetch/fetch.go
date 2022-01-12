@@ -11,7 +11,10 @@ import (
 )
 
 func main() {
+	fmt.Println("Fetch all (non concurret)")
 	fetchAll(os.Args[1:])
+	fmt.Println("Fetch all (concurret)")
+	fetchAllConcurrent(os.Args[1:])
 }
 
 func fetchAll(urls []string) {
@@ -24,7 +27,7 @@ func fetchAll(urls []string) {
 			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
 			os.Exit(1)
 		}
-		fmt.Fprintf(os.Stdout, "Status:[%s]", resp.Status)
+		fmt.Fprintf(os.Stdout, "Status:[%s] ", resp.Status)
 		_, err = io.Copy(os.Stdout, resp.Body)
 		resp.Body.Close()
 		if err != nil {
@@ -38,6 +41,9 @@ func fetchAllConcurrent(urls []string) {
 	start := time.Now()
 	ch := make(chan string)
 	for _, url := range urls {
+		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
+			url = "http://" + url
+		}
 		go fetch(url, ch) // start a goroutine
 	}
 	for range urls {
