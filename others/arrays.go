@@ -40,3 +40,9 @@ func nonempty2(strings []string) []string {
 	}
 	return out
 }
+
+func modifyInplace(arr []string) {
+	arr = append(arr, "Something")
+	arr = append(arr, "Something Else")
+	fmt.Printf("arr: %v\n", arr)
+}
