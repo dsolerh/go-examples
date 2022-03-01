@@ -16,9 +16,11 @@ func main() {
 	// fmt.Printf("time.Since(start).Seconds(): %v\n", time.Since(start).Seconds())
 	// toJSONIdent()
 	// fromJSON()
-	vals := []string{"daniel"}
-	modifyInplace(vals)
-	fmt.Printf("vals: %v\n", vals)
+	// vals := []string{"daniel"}
+	// modifyInplace(vals)
+	// fmt.Printf("vals: %v\n", vals)
+
+	scope_1()
 }
 
 func fetchIssues() {

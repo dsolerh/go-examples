@@ -1,3 +1,3 @@
-module strings-ex
+module strutils
 
 go 1.17
