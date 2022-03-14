@@ -2,7 +2,7 @@ package strutils
 
 import "testing"
 
-func TestPalindrome(t *testing.T) {
+func TestIsPalindrome(t *testing.T) {
 	testCases := []struct {
 		desc string
 		want bool
@@ -25,5 +25,11 @@ func TestPalindrome(t *testing.T) {
 		if got := IsPalindrome(tC.desc); got != tC.want {
 			t.Errorf("IsPalindrome(%q) = %v", tC.desc, got)
 		}
+	}
+}
+
+func BenchmarkIsPalindrome(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsPalindrome("A man, a plan, a canal: Panama")
 	}
 }

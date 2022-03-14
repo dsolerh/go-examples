@@ -18,7 +18,7 @@ func TestEcho(t *testing.T) {
 		{true, "\t", []string{"one", "two"}, "one\ttwo\n"},
 		{true, ",", []string{"a", "b", "c"}, "a,b,c\n"},
 		{false, ":", []string{"1", "2", "3"}, "1:2:3"},
-		{true, ",", []string{"a", "b", "c"}, "a b c\n"}, // NOTE: wrong expectation!
+		// {true, ",", []string{"a", "b", "c"}, "a b c\n"}, // NOTE: wrong expectation!
 	}
 	for _, tC := range testCases {
 		desc := fmt.Sprintf("echo(%v, %q, %q)", tC.newline, tC.sep, tC.args)

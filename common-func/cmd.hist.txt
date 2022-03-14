@@ -1,0 +1,40 @@
+ 1264  traceroute google.com
+ 1280  go env
+ 1282  godoc
+ 1283  go list
+ 1284  go list ...
+ 1286  cw go-ex.code-workspace 
+ 1443  mkdir gql-node-express-mongo
+ 1444  code gql-node-express-mongo/
+ 1519  cw go-ex.code-workspace 
+ 1521  cd go/
+ 1523  cw go-ex.code-workspace 
+ 1686  cw gql-node-express-mongo.code-workspace 
+ 1729  go mod init examples/test
+ 1730  touch tests.go
+ 1731  go test
+ 1732  go mod init expr-eval
+ 1733  touch eval.go
+ 1734  code eval.go 
+ 1735  go test -run=Coverage -coverprofile=c.out
+ 1736  go test -cover
+ 1737  go tool cover -html-c.out
+ 1738  go tool cover -html=c.out
+ 1740  go tool cover -html=c.out
+ 1742  go tool cover
+ 1743  go test -run=Coverage -coverprofile=c.out
+ 1763  cw gql-node-express-mongo.code-workspace 
+ 1795  cw gql-node-express-mongo.code-workspace 
+ 1856  cw gql-node-express-mongo.code-workspace 
+ 1895  cw gql-node-express-mongo.code-workspace 
+ 1907  cw gql-node-express-mongo.code-workspace 
+ 1922  cw go-ex.code-workspace 
+ 1962  code node/gql-node-express-mongo/
+ 1993  go mod init commonfunc
+ 1994  filter.go
+ 1995  touch filter.go
+ 1996  code filter.go 
+ 1997  touch filter_test.go
+ 1998  touch cmdfreq_test.go
+ 2000  history | grep 'go'
+ 2001  history | grep 'go' > cmd.hist.txt
