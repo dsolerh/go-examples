@@ -56,8 +56,8 @@ type Drawer interface {
 func (ic *ImageCanvas) Add(d Drawer) {
 }
 
-func (ic *ImageCanvas) Draw(w io.Writer) error {
-	return nil
+func (ic *ImageCanvas) Draw(w io.Writer) (int, error) {
+	return 1, nil
 }
 
 func main() {
