@@ -46,6 +46,11 @@ func main() {
 
 	http.HandleFunc("/helloworld", helloworldHandler)
 
+	catHandler := http.FileServer(http.Dir("./images"))
+	http.Handle("/cat/", http.StripPrefix("/cat/", catHandler))
+	http.HandleFunc("/hello1", helloworldHandler)
+	http.Handle("/hello2", newValidationHandler(newHelloWorldHandler()))
+
 	log.Printf("Server listening on port: %v\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", port), nil))
 }
