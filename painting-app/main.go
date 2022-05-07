@@ -77,7 +77,7 @@ func main() {
 	}
 	defer f.Close()
 
-	if err = ic.Draw(f); err != nil {
+	if _, err = ic.Draw(f); err != nil {
 		log.Fatal(err)
 	}
 
