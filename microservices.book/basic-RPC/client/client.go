@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/rpc"
 
-	"github.com/dsolerh/examples/microservices.book/basic-RPC/contract"
+	"github.com/dsolerh/examples/microservices.book/RPC-shared/contract"
 )
 
 func CreateClient() *rpc.Client {
