@@ -6,6 +6,7 @@ require (
 	github.com/BurntSushi/toml v1.1.0
 	github.com/apex/log v1.9.0
 	github.com/go-yaml/yaml v2.1.0+incompatible
+	github.com/gorilla/websocket v1.5.0
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/lib/pq v1.10.6
 	github.com/pkg/errors v0.9.1
