@@ -3,9 +3,9 @@ version: "3.1"
 services:
   mongodb:
     image: mongo
-    container_name: mongo-gdbs
+    container_name: go-mongo
     ports:
-      - 27017:27017
+      - 27018:27017
     volumes:
       - mongodb-data
 volumes:
