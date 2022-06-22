@@ -12,6 +12,7 @@ require (
 	github.com/lib/pq v1.10.6
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.1
+	gopkg.in/redis.v5 v5.2.9
 	rsc.io/quote v1.5.2
 )
 
