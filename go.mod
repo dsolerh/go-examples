@@ -14,6 +14,8 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	go.mongodb.org/mongo-driver v1.9.1
 	golang.org/x/oauth2 v0.0.0-20220622183110-fd043fe589d2
+	google.golang.org/grpc v1.31.0
+	google.golang.org/protobuf v1.28.0
 	gopkg.in/redis.v5 v5.2.9
 	rsc.io/quote v1.5.2
 )
@@ -33,7 +35,7 @@ require (
 	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
+	google.golang.org/genproto v0.0.0-20200825200019-8632dd797987 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	rsc.io/sampler v1.3.0 // indirect
