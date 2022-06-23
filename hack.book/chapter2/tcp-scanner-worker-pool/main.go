@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	MIN_PORT = 100
-	MAX_PORT = 200
+	MIN_PORT = 1
+	MAX_PORT = 150
 )
 
 type result struct {
@@ -25,7 +25,7 @@ func (a SortByStatus) Less(i, j int) bool { return a[i].port < a[j].port }
 
 func main() {
 	ports := make(chan int, 100)
-	results := make(chan result, 100)
+	results := make(chan result, 5)
 	var openports []result
 	var closeports []result
 	for i := 0; i < cap(ports); i++ {
@@ -35,10 +35,12 @@ func main() {
 	go func() {
 		for i := MIN_PORT; i <= MAX_PORT; i++ {
 			ports <- i
+			// fmt.Printf("--i: %v\n", i)
 		}
 	}()
 
 	for i := MIN_PORT; i <= MAX_PORT; i++ {
+		// fmt.Printf("i: %v\n", i)
 		r := <-results
 		// fmt.Printf("index: %d | r: %v\n", i, r)
 		if r.open {
