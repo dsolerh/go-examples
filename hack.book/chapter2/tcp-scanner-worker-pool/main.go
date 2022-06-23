@@ -1,17 +1,65 @@
 package main
 
-import "sync"
+import (
+	"fmt"
+	"sort"
+	"time"
+)
+
+const (
+	MIN_PORT = 100
+	MAX_PORT = 200
+)
+
+type result struct {
+	port int
+	open bool
+	time time.Duration
+}
+
+type SortByStatus []result
+
+func (a SortByStatus) Len() int           { return len(a) }
+func (a SortByStatus) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a SortByStatus) Less(i, j int) bool { return a[i].port < a[j].port }
 
 func main() {
 	ports := make(chan int, 100)
-	var wg sync.WaitGroup
+	results := make(chan result, 100)
+	var openports []result
+	var closeports []result
 	for i := 0; i < cap(ports); i++ {
-		go worker(ports, &wg)
+		go worker(ports, results)
 	}
-	for i := 1; i <= 1024; i++ {
-		wg.Add(1)
-		ports <- i
+
+	go func() {
+		for i := MIN_PORT; i <= MAX_PORT; i++ {
+			ports <- i
+		}
+	}()
+
+	for i := MIN_PORT; i <= MAX_PORT; i++ {
+		r := <-results
+		// fmt.Printf("index: %d | r: %v\n", i, r)
+		if r.open {
+			openports = append(openports, r)
+		} else {
+			closeports = append(closeports, r)
+		}
 	}
-	wg.Wait()
+	fmt.Println("scann complete")
+
 	close(ports)
+	close(results)
+	sort.Sort(SortByStatus(openports))
+	fmt.Println("Ports open:")
+	for _, port := range openports {
+		fmt.Printf("\tport: %d  | took: %dms\n", port.port, port.time.Microseconds())
+	}
+	fmt.Println()
+	fmt.Println("Ports close:")
+	for _, port := range closeports {
+		fmt.Printf("\tport: %d  | took: %dms\n", port.port, port.time.Milliseconds())
+	}
+	fmt.Println()
 }
