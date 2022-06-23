@@ -4,14 +4,13 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/dsolerh/examples/cook.book/chapter7/grpc/greeter"
 	"google.golang.org/grpc"
 )
 
 func main() {
 	grpcServer := grpc.NewServer()
-	greeter.RegisterGreeterServiceServer(grpcServer,
-		&Greeter{Exclaim: true})
+	// greeter.RegisterGreeterServiceServer(grpcServer,
+	// 	&Greeter{Exclaim: true})
 	lis, err := net.Listen("tcp", ":4444")
 	if err != nil {
 		panic(err)
