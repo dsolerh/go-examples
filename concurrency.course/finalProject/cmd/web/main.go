@@ -2,10 +2,13 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"sync"
+	"syscall"
 	"time"
 
 	"github.com/alexedwards/scs/redisstore"
@@ -45,7 +48,26 @@ func main() {
 
 	// setup mail
 
+	// listen for signals
+	go app.listenForShutdown()
+
 	// listen for web connections
+	app.serve()
+}
+
+func (app *Config) serve() {
+	// start http server
+	srv := &http.Server{
+		Addr:    fmt.Sprintf(":%s", webPort),
+		Handler: app.routes(),
+	}
+
+	app.InfoLog.Println("Starting the web server")
+
+	err := srv.ListenAndServe()
+	if err != nil {
+		app.ErrorLog.Panic("Error initialzing the server", err)
+	}
 }
 
 func initDB() *sql.DB {
@@ -115,4 +137,22 @@ func initRedis() *redis.Pool {
 		},
 	}
 	return redisPool
+}
+
+func (app *Config) listenForShutdown() {
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	app.shutdown()
+	os.Exit(0)
+}
+
+func (app *Config) shutdown() {
+	// perform any cleanup tasks
+	app.InfoLog.Println("Would run cleanup tasks...")
+
+	// block until waitgroup is empty
+	app.Wait.Wait()
+
+	app.InfoLog.Println("Closing channels and shuting down application...")
 }
