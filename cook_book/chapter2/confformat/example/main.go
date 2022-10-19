@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter2/confformat"
+import "github.com/dsolerh/examples/cook_book/chapter2/confformat"
 
 func main() {
 	if err := confformat.MarshalAll(); err != nil {

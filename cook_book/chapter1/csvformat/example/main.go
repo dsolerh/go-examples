@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter1/csvformat"
+	"github.com/dsolerh/examples/cook_book/chapter1/csvformat"
 )
 
 func main() {

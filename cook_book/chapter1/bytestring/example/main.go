@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter1/bytestring"
+import "github.com/dsolerh/examples/cook_book/chapter1/bytestring"
 
 func main() {
 	err := bytestring.WorkWithBuffer()

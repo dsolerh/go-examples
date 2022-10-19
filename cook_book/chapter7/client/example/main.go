@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter7/client"
+import "github.com/dsolerh/examples/cook_book/chapter7/client"
 
 func main() {
 	// secure and op!

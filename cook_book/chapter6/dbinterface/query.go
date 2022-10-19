@@ -3,7 +3,7 @@ package dbinterface
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter6/database"
+	"github.com/dsolerh/examples/cook_book/chapter6/database"
 )
 
 // Query grabs a new connection

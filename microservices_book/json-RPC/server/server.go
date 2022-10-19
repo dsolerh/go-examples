@@ -9,7 +9,7 @@ import (
 	"net/rpc"
 	"net/rpc/jsonrpc"
 
-	"github.com/dsolerh/examples/microservices.book/RPC-shared/handler"
+	"github.com/dsolerh/examples/microservices_book/RPC-shared/handler"
 )
 
 type HelloWorldHandler struct{}

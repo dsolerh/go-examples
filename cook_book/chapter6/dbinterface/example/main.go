@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/dsolerh/examples/cook.book/chapter6/database"
-	"github.com/dsolerh/examples/cook.book/chapter6/dbinterface"
+	"github.com/dsolerh/examples/cook_book/chapter6/database"
+	"github.com/dsolerh/examples/cook_book/chapter6/dbinterface"
 	_ "github.com/go-sql-driver/mysql"
 )
 

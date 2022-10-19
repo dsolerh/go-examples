@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter7/grpc/greeter"
+	"github.com/dsolerh/examples/cook_book/chapter7/grpc/greeter"
 )
 
 // Greeter implements the interface

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter1/interfaces"
+	"github.com/dsolerh/examples/cook_book/chapter1/interfaces"
 )
 
 func main() {

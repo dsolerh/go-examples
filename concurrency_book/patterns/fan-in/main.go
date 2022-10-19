@@ -6,7 +6,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/dsolerh/examples/concurrency.book/patterns/streamutils"
+	"github.com/dsolerh/examples/concurrency_book/patterns/streamutils"
 )
 
 func main() {

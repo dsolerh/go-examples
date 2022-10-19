@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter3/dataconv"
+import "github.com/dsolerh/examples/cook_book/chapter3/dataconv"
 
 func main() {
 	dataconv.ShowConv()

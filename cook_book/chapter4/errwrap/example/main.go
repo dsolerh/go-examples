@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter4/errwrap"
+	"github.com/dsolerh/examples/cook_book/chapter4/errwrap"
 )
 
 func main() {

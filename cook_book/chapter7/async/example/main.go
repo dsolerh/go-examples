@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dsolerh/examples/cook.book/chapter7/async"
+	"github.com/dsolerh/examples/cook_book/chapter7/async"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter1/templates"
+import "github.com/dsolerh/examples/cook_book/chapter1/templates"
 
 func main() {
 	if err := templates.RunTemplate(); err != nil {

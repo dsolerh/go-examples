@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/rpc"
 
-	"github.com/dsolerh/examples/cook.book/chapter5/rpc/tweak"
+	"github.com/dsolerh/examples/cook_book/chapter5/rpc/tweak"
 )
 
 func main() {

@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/dsolerh/examples/cook.book/chapter7/oauthstore"
+	"github.com/dsolerh/examples/cook_book/chapter7/oauthstore"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/github"
 )

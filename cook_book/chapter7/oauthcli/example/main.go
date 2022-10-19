@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	"github.com/dsolerh/examples/cook.book/chapter7/oauthcli"
+	"github.com/dsolerh/examples/cook_book/chapter7/oauthcli"
 )
 
 func main() {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/dsolerh/examples/cook.book/chapter8/controllers"
+	"github.com/dsolerh/examples/cook_book/chapter8/controllers"
 )
 
 func main() {

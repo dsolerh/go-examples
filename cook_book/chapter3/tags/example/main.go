@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter3/tags"
+	"github.com/dsolerh/examples/cook_book/chapter3/tags"
 )
 
 func main() {

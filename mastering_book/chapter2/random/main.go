@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	util "github.com/dsolerh/examples/mastering.book/chapter2/random/utils"
+	util "github.com/dsolerh/examples/mastering_book/chapter2/random/utils"
 )
 
 func main() {

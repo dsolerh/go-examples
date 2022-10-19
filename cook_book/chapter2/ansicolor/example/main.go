@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter2/ansicolor"
+	"github.com/dsolerh/examples/cook_book/chapter2/ansicolor"
 )
 
 func main() {

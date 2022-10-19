@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter3/encoding"
+import "github.com/dsolerh/examples/cook_book/chapter3/encoding"
 
 func main() {
 	if err := encoding.Base64Example(); err != nil {

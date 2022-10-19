@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/dsolerh/examples/cook.book/chapter8/validation"
+	"github.com/dsolerh/examples/cook_book/chapter8/validation"
 )
 
 func main() {

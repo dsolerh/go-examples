@@ -1,6 +1,6 @@
 package handler
 
-import "github.com/dsolerh/examples/microservices.book/RPC-shared/contract"
+import "github.com/dsolerh/examples/microservices_book/RPC-shared/contract"
 
 type HelloWorldHandler struct{}
 

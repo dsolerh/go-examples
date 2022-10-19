@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/microservices.book/basic-RPC/client"
-	"github.com/dsolerh/examples/microservices.book/basic-RPC/server"
+	"github.com/dsolerh/examples/microservices_book/basic-RPC/client"
+	"github.com/dsolerh/examples/microservices_book/basic-RPC/server"
 )
 
 func main() {

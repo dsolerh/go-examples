@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"time"
 
-	randomutil "github.com/dsolerh/examples/mastering.book/chapter2/random/utils"
-	"github.com/dsolerh/examples/mastering.book/chapter5/userPost"
+	randomutil "github.com/dsolerh/examples/mastering_book/chapter2/random/utils"
+	"github.com/dsolerh/examples/mastering_book/chapter5/userPost"
 )
 
 var (

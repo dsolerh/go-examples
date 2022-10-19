@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/dsolerh/examples/cook.book/chapter5/dns"
+	"github.com/dsolerh/examples/cook_book/chapter5/dns"
 )
 
 func main() {

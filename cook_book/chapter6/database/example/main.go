@@ -1,6 +1,6 @@
 package main
 
-import "github.com/dsolerh/examples/cook.book/chapter6/database"
+import "github.com/dsolerh/examples/cook_book/chapter6/database"
 
 func main() {
 	db, err := database.Setup()

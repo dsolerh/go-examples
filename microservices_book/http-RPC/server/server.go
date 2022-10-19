@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/rpc"
 
-	"github.com/dsolerh/examples/microservices.book/RPC-shared/handler"
+	"github.com/dsolerh/examples/microservices_book/RPC-shared/handler"
 )
 
 func StartServer() {

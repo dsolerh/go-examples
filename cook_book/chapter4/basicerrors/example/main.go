@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/examples/cook.book/chapter4/basicerrors"
+	"github.com/dsolerh/examples/cook_book/chapter4/basicerrors"
 )
 
 func main() {

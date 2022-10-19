@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/dsolerh/examples/cook.book/chapter2/envar"
+	"github.com/dsolerh/examples/cook_book/chapter2/envar"
 )
 
 // Config holds the config we
