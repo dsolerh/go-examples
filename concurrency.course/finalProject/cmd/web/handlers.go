@@ -13,6 +13,9 @@ import (
 	"github.com/phpdave11/gofpdf/contrib/gofpdi"
 )
 
+var pathToManual = "./pdf"
+var pathToTemp = "./tmp"
+
 func (app *Config) HomePage(w http.ResponseWriter, r *http.Request) {
 	app.render(w, r, "home.page.gohtml", nil)
 }
@@ -44,7 +47,7 @@ func (app *Config) Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// check the password
-	validPass, err := user.PasswordMatches(password)
+	validPass, err := app.Models.User.PasswordMatches(password)
 	if err != nil {
 		app.Session.Put(r.Context(), "error", "Invalid credentials.")
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
@@ -106,7 +109,7 @@ func (app *Config) Register(w http.ResponseWriter, r *http.Request) {
 		IsAdmin:   0,
 	}
 
-	_, err = u.Insert(&u)
+	_, err = app.Models.User.Insert(&u)
 	if err != nil {
 		app.Session.Put(r.Context(), "error", "Unable to create the user.")
 		http.Redirect(w, r, "/register", http.StatusSeeOther)
@@ -154,7 +157,7 @@ func (app *Config) ActivateAccount(w http.ResponseWriter, r *http.Request) {
 	}
 
 	u.Active = 1
-	err = u.Update()
+	err = app.Models.User.Update(u)
 	if err != nil {
 		app.Session.Put(r.Context(), "error", "Unable to update the user.")
 		http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -230,7 +233,7 @@ func (app *Config) SubscribeToPlan(w http.ResponseWriter, r *http.Request) {
 
 		pdf := app.generateManual(&user, plan)
 
-		manualName := fmt.Sprintf("./tmp/%d_maunal.pdf", user.ID)
+		manualName := fmt.Sprintf("%s/%d_maunal.pdf", pathToTemp, user.ID)
 		err := pdf.OutputFileAndClose(manualName)
 		if err != nil {
 			app.ErrorChan <- err
@@ -286,7 +289,7 @@ func (app *Config) generateManual(u *data.User, plan *data.Plan) *gofpdf.Fpdf {
 
 	time.Sleep(5 * time.Second)
 
-	t := importer.ImportPage(pdf, "./pdf/manual.pdf", 1, "/MediaBox")
+	t := importer.ImportPage(pdf, fmt.Sprintf("%s/manual.pdf", pathToManual), 1, "/MediaBox")
 	pdf.AddPage()
 
 	importer.UseImportedTemplate(pdf, t, 0, 0, 215.9, 0)
