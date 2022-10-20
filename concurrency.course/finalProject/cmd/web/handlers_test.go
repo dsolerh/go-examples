@@ -11,7 +11,6 @@ import (
 )
 
 func Test_Pages(t *testing.T) {
-	pathToTemplates = "./templates"
 	testCases := []struct {
 		desc           string
 		url            string
@@ -81,7 +80,6 @@ func Test_Pages(t *testing.T) {
 }
 
 func Test_Config_Login(t *testing.T) {
-	pathToTemplates = "./templates"
 
 	postedData := url.Values{
 		"email":    {"admin@example.com"},
@@ -105,4 +103,29 @@ func Test_Config_Login(t *testing.T) {
 	if !testApp.Session.Exists(ctx, "userID") {
 		t.Error("did not find userID in session")
 	}
+}
+
+func Test_Config_SubscribeToPlan(t *testing.T) {
+	rr := httptest.NewRecorder()
+	req, _ := http.NewRequest("GET", "/subscribe?id=1", nil)
+	ctx := getCtx(req)
+	req = req.WithContext(ctx)
+
+	testApp.Session.Put(ctx, "user", data.User{
+		ID:        1,
+		Email:     "admin@example.com",
+		FirstName: "Admin",
+		LastName:  "Admin",
+		Active:    1,
+	})
+
+	handler := http.HandlerFunc(testApp.Login)
+
+	handler.ServeHTTP(rr, req)
+	testApp.Wait.Wait()
+
+	if rr.Code != http.StatusSeeOther {
+		t.Errorf("Failed: expected %d, but got %d", http.StatusSeeOther, rr.Code)
+	}
+
 }

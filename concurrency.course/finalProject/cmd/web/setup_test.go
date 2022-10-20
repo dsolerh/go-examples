@@ -19,6 +19,10 @@ var testApp Config
 func TestMain(m *testing.M) {
 	gob.Register(data.User{})
 
+	pathToTemp = "./../../tmp"
+	pathToManual = "./../../pdf"
+	pathToTemplates = "./templates"
+
 	// setup session
 	session := scs.New()
 	session.Lifetime = 24 * time.Hour
@@ -58,11 +62,14 @@ func TestMain(m *testing.M) {
 	}
 
 	go func() {
-		select {
-		case <-testApp.Mailer.MailerChan:
-		case <-testApp.Mailer.ErrorChan:
-		case <-testApp.Mailer.DoneChan:
-			return
+		for {
+			select {
+			case <-testApp.Mailer.MailerChan:
+				testApp.Wait.Done()
+			case <-testApp.Mailer.ErrorChan:
+			case <-testApp.Mailer.DoneChan:
+				return
+			}
 		}
 
 	}()

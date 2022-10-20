@@ -51,8 +51,6 @@ func Test_Config_IsAuthenticated(t *testing.T) {
 }
 
 func Test_Config_render(t *testing.T) {
-	pathToTemplates = "./templates"
-
 	rr := httptest.NewRecorder()
 
 	req, _ := http.NewRequest("GET", "/", nil)
