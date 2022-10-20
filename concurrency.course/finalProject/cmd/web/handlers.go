@@ -106,7 +106,7 @@ func (app *Config) Register(w http.ResponseWriter, r *http.Request) {
 		IsAdmin:   0,
 	}
 
-	_, err = u.Insert(u)
+	_, err = u.Insert(&u)
 	if err != nil {
 		app.Session.Put(r.Context(), "error", "Unable to create the user.")
 		http.Redirect(w, r, "/register", http.StatusSeeOther)
