@@ -62,7 +62,7 @@ func (usr *UserTest) GetOne(id int) (*User, error) {
 	return usr.GetByEmail("")
 }
 
-func (usr *UserTest) Update() error {
+func (usr *UserTest) Update(u *User) error {
 	return nil
 }
 

@@ -196,7 +196,7 @@ func (u *User) GetOne(id int) (*User, error) {
 
 // Update updates one user in the database, using the information
 // stored in the receiver u
-func (u *User) Update() error {
+func (u *User) Update(usr *User) error {
 	ctx, cancel := context.WithTimeout(context.Background(), dbTimeout)
 	defer cancel()
 
@@ -209,12 +209,12 @@ func (u *User) Update() error {
 		where id = $6`
 
 	_, err := db.ExecContext(ctx, stmt,
-		u.Email,
-		u.FirstName,
-		u.LastName,
-		u.Active,
+		usr.Email,
+		usr.FirstName,
+		usr.LastName,
+		usr.Active,
 		time.Now(),
-		u.ID,
+		usr.ID,
 	)
 
 	if err != nil {
