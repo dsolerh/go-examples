@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dsolerh/examples/concurrency.course/finalProject/pkg/data"
+	"github.com/dsolerh/examples/concurrency_course/finalProject/pkg/data"
 )
 
 var pathToTemplates = "./cmd/web/templates"

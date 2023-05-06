@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dsolerh/examples/concurrency.course/finalProject/pkg/data"
+	"github.com/dsolerh/examples/concurrency_course/finalProject/pkg/data"
 	"github.com/phpdave11/gofpdf"
 	"github.com/phpdave11/gofpdf/contrib/gofpdi"
 )

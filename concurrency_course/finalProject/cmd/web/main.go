@@ -14,7 +14,7 @@ import (
 
 	"github.com/alexedwards/scs/redisstore"
 	"github.com/alexedwards/scs/v2"
-	"github.com/dsolerh/examples/concurrency.course/finalProject/pkg/data"
+	"github.com/dsolerh/examples/concurrency_course/finalProject/pkg/data"
 	"github.com/gomodule/redigo/redis"
 	_ "github.com/jackc/pgconn"
 	_ "github.com/jackc/pgx/v4"

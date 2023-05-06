@@ -6,7 +6,7 @@ import (
 	"sync"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/dsolerh/examples/concurrency.course/finalProject/pkg/data"
+	"github.com/dsolerh/examples/concurrency_course/finalProject/pkg/data"
 )
 
 type Config struct {

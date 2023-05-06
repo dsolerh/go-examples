@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dsolerh/examples/concurrency.course/finalProject/pkg/data"
+	"github.com/dsolerh/examples/concurrency_course/finalProject/pkg/data"
 )
 
 func Test_Pages(t *testing.T) {
