@@ -14,6 +14,6 @@ type PaymentReceived struct {
 ```
 
 -   Design example:
-
+![image](https://github.com/dsolerh/go-examples/assets/55502191/1580cfb6-0df6-4239-af9f-87f4b1e47665)
 
 ### Event 
