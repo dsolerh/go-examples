@@ -17,4 +17,22 @@ type PaymentReceived struct {
 
 ![image](./assets/event_notification.png)
 
-### Event 
+
+### Event-carried state transfer
+
+-   Similar to REST, but with a push model instead of a pull.
+-   Contains more data than an [Event notifications](#event-notifications).
+-   There's less need to request extra info from the service who originated the event.
+-   Payload Example:
+
+```go
+type PaymentReceived struct {
+    PaymentID   string
+    CustomerID  string
+    OrderID     string
+    Amount      int
+}
+```
+
+-   Shares the same design that the [Event notifications](#event-notifications).
+-   Some services may receive more data than needed.
