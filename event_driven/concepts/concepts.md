@@ -6,6 +6,23 @@ In essence all event architecture is simply a producer/consumer in a queue. Ther
 
 ![image](./assets/proucer_consumer.png)
 
+### Main Benefits
+
+-   **Resilincy/Fault tolerance**: In a P2P comunication both the caller and the callee need to be available and not produce an error, otherwise the error will propagate and the entire operation will fail. Sometimes this can happen in a long chain of call, then the error end up reflecting in a different service than the one were was originally created, this makes it harder to find the root cause, increasing the cost of maintenance. In a EDA the different services are decoupled by the event broker, if one fails it's not reflected on the other one.
+-   **Agility**: The different teams can work independently (to a certain degree) from each other as an extra benefit of the services being decoupled. New features can be experimented with more freedom.
+-   **User Experience (UX)**: The users of services built with EDA have instant feedback/notification of the actions they perform or they want to be aware of.
+-   **Analytics and Auditing**: Provided that all the important events are being stored the app will have the records to reconstruct action taken on it. Also good for gathering **Bussines Inteligence (BI)**.
+
+### Chalenges of EDA
+
+-   **Eventual Consistency**: Comes from being distributed, any change in the whole application state may take some time to be visible. The user may query some data that may not be fully acknoledge by the system, and get back information that is outdated.
+-   **Dual writes**: local changes need to ensure to be transmitted to the other components of the system, otherwise can create inconsistency. There's a solution for this known as the **Outbox** pattern.
+-   **Distributed and Asynchronous Workflows**: It's a problem related to the **Eventual Consistency**, in the sense that the UX team will have to work around this limitation to prevent the user frustration on no inmediate result. Not only the UX needs to account for this but also the services have to design an efficient comunication strategy to aliviate the issue.
+    -   **Components Collaboration**: There are two main patterns to manage workflows:
+        -   **Choreography**: Components know about the work they need to perform.
+        -   **Orchestration**: Each component does their task whithout knowing of the overall, and are managed by an orchestrator.
+-   **Debuggability**: A service produces an event but does not know if the event is going to be processed, and therefore can only log one side of the story, this makes it harder to debug an operation in the system.
+
 ### Event notifications
 
 -   Tipically carries a minimun state.
@@ -96,3 +113,5 @@ type PaymentReceived struct {
     -   The beginning of the stream.
     -   The new event from when they joined the stream.
     -   A cursor to pick up from where they left the stream.
+
+## Hexagonal Architecture
