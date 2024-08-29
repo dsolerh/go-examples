@@ -1,0 +1,9 @@
+go 1.22.5
+
+use (
+	./code_generation
+	./grpc_examples/route_guide
+	./grpc_examples/simple_service
+	./mocking_examples
+	./testings
+)

@@ -1,10 +1,8 @@
 package main
 
 import (
-	"os"
-	"runtime"
-	"runtime/pprof"
-	"time"
+	"encoding/json"
+	"fmt"
 )
 
 // type _interface interface {
@@ -40,7 +38,59 @@ import (
 // }
 
 func main() {
+	// name := "daniel"
+	// last := "soler"
+	// // dd := []*string{&name, nil, &last}
+	// dd := make([]*string, 4)
+	// dd[0] = &name
+	// dd[2] = &last
+	// bb, _ := json.Marshal(&dd)
+	// fmt.Printf("bb: %s\n", bb)
+	// last = "hedez"
+	// bb, _ = json.Marshal(&dd)
+	// fmt.Printf("bb: %s\n", bb)
 	// data := `{"prop_1":1}`
+
+	// a := map[string]int{
+	// 	"a": 1,
+	// 	"b": 2,
+	// }
+	// fmt.Printf("a: %v\n", a)
+	// for key := range a {
+	// 	a[key]--
+	// }
+	// fmt.Printf("a: %v\n", a)
+	// fmt.Printf("(%d) binary: %016b, (%d) %016b\n", 0xE, 0xE, 0xE<<2, 0xE<<2)
+
+	// data := `[1,2,3]`
+	// var numbers []any
+	// err := json.Unmarshal([]byte(data), &numbers)
+	// fmt.Printf("err: %v\n", err)
+	// fmt.Printf("numbers: %v\n", numbers)
+	// v := int(numbers[2].(int64))
+	// fmt.Printf("v: %v\n", v)
+	//
+	// var twonumbers [2]int
+	// err = json.Unmarshal([]byte(data), &twonumbers)
+	// fmt.Printf("err: %v\n", err)
+	// fmt.Printf("twonumbers: %v\n", twonumbers)
+	//
+	// var fivenumbers [5]int
+	// err = json.Unmarshal([]byte(data), &fivenumbers)
+	// fmt.Printf("err: %v\n", err)
+	// fmt.Printf("fivenumbers: %v\n", fivenumbers)
+
+	// a := make([]int, 0, 3)
+	// a = append(a, 0)
+	// a = append(a, 1)
+	// a = append(a, 2)
+	// fmt.Printf("a: %v\n", a)
+	// b := a[1:]
+	// fmt.Printf("b: %v\n", b)
+	// b = append(b, 3)
+	// fmt.Printf("b: %v\n", b)
+	// fmt.Printf("a: %v\n", a)
+	testLabel()
 
 	// val := &final{}
 
@@ -127,7 +177,7 @@ func main() {
 
 	// close(ch)
 	// heapProf("./heap_after.pprof")
-	time.Sleep(2 * time.Second)
+	// time.Sleep(2 * time.Second)
 }
 
 // func tt() {
@@ -167,13 +217,25 @@ func main() {
 // 	fmt.Printf("%d KB\n", m.Alloc/1024)
 // }
 
-func heapProf(pprofName string) error {
-	f, err := os.Create(pprofName)
-	if err != nil {
-		return err
-	}
-	defer f.Close() // error handling omitted for example
-	runtime.GC()
-	// return nil
-	return pprof.WriteHeapProfile(f)
+// func heapProf(pprofName string) error {
+// 	f, err := os.Create(pprofName)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	defer f.Close() // error handling omitted for example
+// 	runtime.GC()
+// 	// return nil
+// 	return pprof.WriteHeapProfile(f)
+// }
+
+type label struct {
+	L string `json:"l,omitempty"`
+}
+
+func testLabel() {
+	l := label{L: "super"}
+
+	data, err := json.Marshal(&l)
+	fmt.Printf("err: %v\n", err)
+	fmt.Printf("data: %s\n", data)
 }

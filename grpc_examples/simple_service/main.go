@@ -1,0 +1,3 @@
+package simpleservice
+
+func main() {}
