@@ -1,0 +1,14 @@
+package example
+
+// replace: do/not/exist -> exist
+import (
+	one "github.com/package/do/not/replace/this/one"
+	two "github.com/package/do/not/exist/two"
+	"github.com/package/do/not/exist/three"
+)
+
+func example() {
+    one.Print()
+    two.Print()
+    three.Print()
+}

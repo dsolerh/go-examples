@@ -1,0 +1,14 @@
+package example
+
+// nothing to replace
+import (
+	one "github.com/package/do/not/replace/this/one"
+	two "github.com/package/do/not/replace/two"
+	"github.com/package/do/not/replace/three"
+)
+
+func example() {
+    one.Print()
+    two.Print()
+    three.Print()
+}

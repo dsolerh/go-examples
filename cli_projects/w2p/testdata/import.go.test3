@@ -1,0 +1,7 @@
+package example
+
+// replace: do/not/exist -> exist
+import _ "github.com/package/do/not/exist/three"
+
+func example() {
+}

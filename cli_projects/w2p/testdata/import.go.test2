@@ -1,0 +1,8 @@
+package example
+
+// replace: do/not/exist -> exist
+import "github.com/package/do/not/exist/three"
+
+func example() {
+    three.Print()
+}
