@@ -5,3 +5,4 @@ concurrency.course/finalProject/myapp
 concurrency.course/finalProject/tmp
 concurrency.course/finalProject/cmd/web/cover.out
 hack_book/chapter5/subdomain_guesser/subdomain_guesser
+.DS_Store
