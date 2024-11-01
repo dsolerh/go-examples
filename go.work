@@ -1,9 +1,15 @@
-go 1.22.5
+go 1.23.1
 
 use (
+	./aoc
+	./benchmarks //+replace:benchmarks
+	./cli_projects
 	./code_generation
+	./common_patterns
+	./data_structures
 	./grpc_examples/route_guide
 	./grpc_examples/simple_service
 	./mocking_examples
+	./projects
 	./testings
 )

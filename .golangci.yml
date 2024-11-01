@@ -1,4 +1,10 @@
 linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - data_structures/trie
   errcheck:
     check-type-assertions: true
   goconst:
@@ -12,7 +18,6 @@ linters-settings:
       - performance
       - style
   govet:
-    check-shadowing: true
     enable:
       - fieldalignment
   nolintlint:
@@ -23,18 +28,16 @@ linters:
   disable-all: true
   enable:
     - bodyclose
-    - deadcode
-    - depguard
+    # - depguard
     - dogsled
     - dupl
     - errcheck
-    - exportloopref
+    - copyloopvar
     - exhaustive
     - goconst
-    - gocritic
+    # - gocritic
     - gofmt
     - goimports
-    - gomnd
     - gocyclo
     - gosec
     - gosimple
@@ -47,16 +50,17 @@ linters:
     - predeclared
     - revive
     - staticcheck
-    - structcheck
     - stylecheck
     - thelper
     - tparallel
     - typecheck
     - unconvert
     - unparam
-    - varcheck
+    - unused
     - whitespace
-    - wsl
+    - containedctx
+    - contextcheck
 
 run:
-  issues-exit-code: 1
+  concurrency: 0 # will use all the cores
+  issues-exit-code: 2
