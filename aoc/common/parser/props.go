@@ -33,3 +33,16 @@ func (p *ParsedData) Numbers(index int) ([]number, error) {
 	}
 	return nums, nil
 }
+
+func (p *ParsedData) Bytes(index int) ([]byte, error) {
+	if index >= len(p.parsed) {
+		return nil, errors.New("invalid index for parsed data")
+	}
+
+	nums, ok := p.parsed[index].([]byte)
+	if !ok {
+		return nil, errors.New("no collection at the specified index")
+	}
+
+	return nums, nil
+}
