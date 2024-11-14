@@ -1,4 +1,4 @@
-go 1.23.1
+go 1.23.3
 
 use (
 	./aoc
@@ -10,6 +10,8 @@ use (
 	./grpc_examples/route_guide
 	./grpc_examples/simple_service
 	./mocking_examples
-	./projects
+	./projects/chores
+	./projects/event_driven/mallbots
+	./projects/gin_service
 	./testings
 )
