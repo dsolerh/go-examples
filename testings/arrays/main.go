@@ -24,4 +24,8 @@ func main() {
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	fmt.Printf("a[:5]: %v\n", a[:5])
 	fmt.Printf("a[5:]: %v\n", a[5:])
+
+	a = nil
+	a = append(a, []int{1, 4, 7}...)
+	fmt.Printf("a: %v\n", a)
 }

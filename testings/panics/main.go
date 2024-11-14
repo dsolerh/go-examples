@@ -7,6 +7,8 @@ import (
 func main() {
 	catcher()
 	fmt.Println("after recovered")
+
+	fmt.Printf("willReturn(): %v\n", willReturn())
 }
 
 // Panic panics with a divide by zero
@@ -32,4 +34,16 @@ func catcher() {
 			willPanic()
 		}()
 	}()
+}
+
+func willReturn() (ret string) {
+	defer superRecover(&ret)
+	willPanic()
+	return "nothing happened"
+}
+
+func superRecover(s *string) {
+	if r := recover(); r != nil {
+		*s = "panic on the disco"
+	}
 }
