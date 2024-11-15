@@ -1,33 +1,88 @@
+// Recipes API
+//
+// This is a sample recipes API.
+//
+//	Schemes: http
+//	Host: localhost:8080
+//	BasePath: /
+//	Version: 1.0.0
+//
+//	Consumes:
+//	- application/json
+//
+//	Produces:
+//	- application/json
+//
+// swagger:meta
 package main
 
 import (
+	"context"
+	"gin_service/handlers"
+	"gin_service/models"
 	"log"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rs/xid"
+	"go.mongodb.org/mongo-driver/v2/mongo"
+	"go.mongodb.org/mongo-driver/v2/mongo/options"
+	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
 )
 
-var recipes []Recipe
+const (
+	MongoURI      = "mongodb://admin:password@localhost:27017/test?authSource=admin"
+	MongoDatabase = "demo"
+)
 
-func init() {
-	recipes = make([]Recipe, 0)
+var recipes []models.Recipe
+var client *mongo.Client
+
+func mongoConnect() (err error) {
+	client, err = mongo.Connect(options.Client().ApplyURI(MongoURI))
+	if err != nil {
+		return err
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+
+	err = client.Ping(ctx, readpref.Primary())
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func mongoDisconnect() {
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	if err := client.Disconnect(ctx); err != nil {
+		log.Fatal(err)
+	}
 }
 
 func main() {
+	err := mongoConnect()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer mongoDisconnect()
+
+	handlers := handlers.NewRecipesHandler(client.Database(MongoDatabase).Collection("recipes"))
+
 	router := gin.Default()
 
 	// define the routes
-	router.GET("/recipes", ListRecipesHandler)
-	router.POST("/recipes", CreateRecipeHandler)
-	router.PUT("/recipes/:id", UpdateRecipeHandler)
-	router.DELETE("/recipes/:id", DeleteRecipeHandler)
-	router.GET("/recipes/search?tag=X", SearchRecipesHandler)
+	router.GET("/recipes", handlers.ListRecipesHandler)
+	router.POST("/recipes", handlers.CreateRecipeHandler)
+	router.PUT("/recipes/:id", handlers.UpdateRecipeHandler)
+	router.DELETE("/recipes/:id", handlers.DeleteRecipeHandler)
+	router.GET("/recipes/search", handlers.SearchRecipesHandler)
 
 	// run the server
-	err := router.Run()
+	err = router.Run()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,83 +93,4 @@ func IndexHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": "hello " + name,
 	})
-}
-
-func CreateRecipeHandler(c *gin.Context) {
-	var recipe Recipe
-	if err := c.ShouldBindJSON(&recipe); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	recipe.ID = xid.New().String()
-	recipe.PublishedAt = time.Now()
-	recipes = append(recipes, recipe)
-	c.JSON(http.StatusOK, recipe)
-}
-
-func ListRecipesHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, recipes)
-}
-
-func UpdateRecipeHandler(c *gin.Context) {
-	id := c.Param("id")
-	var recipe Recipe
-	if err := c.ShouldBindJSON(&recipe); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	index := -1
-	for i := 0; i < len(recipes); i++ {
-		if recipes[i].ID == id {
-			index = i
-		}
-	}
-
-	if index == -1 {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Recipe not found"})
-		return
-	}
-
-	recipes[index] = recipe
-
-	c.JSON(http.StatusOK, recipe)
-}
-
-func DeleteRecipeHandler(c *gin.Context) {
-	id := c.Param("id")
-	index := -1
-	for i := 0; i < len(recipes); i++ {
-		if recipes[i].ID == id {
-			index = i
-		}
-	}
-
-	if index == -1 {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Recipe not found"})
-		return
-	}
-
-	recipes = append(recipes[:index], recipes[index+1:]...)
-	c.JSON(http.StatusOK, gin.H{"message": "Recipe has been deleted"})
-}
-
-func SearchRecipesHandler(c *gin.Context) {
-	tag := c.Query("tag")
-	listOfRecipes := make([]Recipe, 0)
-
-	for i := 0; i < len(recipes); i++ {
-		found := false
-		for _, t := range recipes[i].Tags {
-			if strings.EqualFold(t, tag) {
-				found = true
-			}
-		}
-		if found {
-			listOfRecipes = append(listOfRecipes,
-				recipes[i])
-		}
-	}
-
-	c.JSON(http.StatusOK, listOfRecipes)
 }
