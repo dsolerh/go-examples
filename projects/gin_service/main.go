@@ -19,12 +19,12 @@ package main
 import (
 	"context"
 	"gin_service/handlers"
-	"gin_service/models"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/redis/go-redis/v9"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
@@ -35,51 +35,76 @@ const (
 	MongoDatabase = "demo"
 )
 
-var recipes []models.Recipe
-var client *mongo.Client
-
-func mongoConnect() (err error) {
+func mongoConnect(ctx context.Context) (client *mongo.Client, err error) {
 	client, err = mongo.Connect(options.Client().ApplyURI(MongoURI))
 	if err != nil {
-		return err
+		return
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
 	defer cancel()
 
 	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
-		return err
+		return
 	}
 
-	return nil
+	return
 }
 
-func mongoDisconnect() {
-	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+func mongoDisconnect(ctx context.Context, client *mongo.Client) {
+	ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
 	defer cancel()
 	if err := client.Disconnect(ctx); err != nil {
 		log.Fatal(err)
 	}
 }
 
+func redisConnect() *redis.Client {
+	ctx := context.Background()
+	redisClient := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "",
+		DB:       0,
+	})
+
+	status := redisClient.Ping(ctx)
+	log.Println("Redis status:", status)
+	return redisClient
+}
+
 func main() {
-	err := mongoConnect()
+	ctx := context.Background()
+	client, err := mongoConnect(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer mongoDisconnect()
+	defer mongoDisconnect(ctx, client)
 
-	handlers := handlers.NewRecipesHandler(client.Database(MongoDatabase).Collection("recipes"))
+	redisClient := redisConnect()
+	defer redisClient.Close()
+
+	recipesH := handlers.NewRecipesHandler(
+		client.Database(MongoDatabase).Collection("recipes"),
+		redisClient,
+	)
+	authH := handlers.AuthHandler{}
 
 	router := gin.Default()
 
+	// auth
+	router.POST("/signin", authH.SignInHandler)
+
+	authorized := router.Group("/")
+	authorized.Use(handlers.AuthMiddleware())
+
 	// define the routes
-	router.GET("/recipes", handlers.ListRecipesHandler)
-	router.POST("/recipes", handlers.CreateRecipeHandler)
-	router.PUT("/recipes/:id", handlers.UpdateRecipeHandler)
-	router.DELETE("/recipes/:id", handlers.DeleteRecipeHandler)
-	router.GET("/recipes/search", handlers.SearchRecipesHandler)
+	authorized.POST("/recipes", recipesH.CreateRecipeHandler)
+	authorized.GET("/recipes", recipesH.ListRecipesHandler)
+	authorized.PUT("/recipes/:id", recipesH.UpdateRecipeHandler)
+	authorized.DELETE("/recipes/:id", recipesH.DeleteRecipeHandler)
+
+	router.GET("/recipes/search", recipesH.SearchRecipesHandler)
 
 	// run the server
 	err = router.Run()

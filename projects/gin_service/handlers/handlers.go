@@ -1,22 +1,28 @@
 package handlers
 
 import (
+	"encoding/json"
 	"gin_service/models"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/redis/go-redis/v9"
 	"go.mongodb.org/mongo-driver/v2/bson"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 )
 
 type RecipesHandler struct {
-	collection *mongo.Collection
+	collection  *mongo.Collection
+	redisClient *redis.Client
 }
 
-func NewRecipesHandler(collection *mongo.Collection) RecipesHandler {
-	return RecipesHandler{collection: collection}
+func NewRecipesHandler(collection *mongo.Collection, redisClient *redis.Client) RecipesHandler {
+	return RecipesHandler{
+		collection:  collection,
+		redisClient: redisClient,
+	}
 }
 
 // swagger:operation POST /recipes recipes createRecipe
@@ -52,6 +58,10 @@ func (h RecipesHandler) CreateRecipeHandler(c *gin.Context) {
 	}
 	log.Println("Insert result", result)
 
+	if err := h.redisClient.Del(c.Request.Context(), "recipes").Err(); err != nil {
+		log.Println("Error deleting the redis cache:", err.Error())
+	}
+
 	c.JSON(http.StatusOK, recipe)
 }
 
@@ -66,25 +76,53 @@ func (h RecipesHandler) CreateRecipeHandler(c *gin.Context) {
 //	'200':
 //		description: Successful operation
 func (h RecipesHandler) ListRecipesHandler(c *gin.Context) {
-	cur, err := h.collection.Find(c.Request.Context(), bson.D{})
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-	defer cur.Close(c.Request.Context())
-
-	recipes := make([]models.Recipe, 0)
-	for cur.Next(c.Request.Context()) {
-		var recipe models.Recipe
-		err = cur.Decode(&recipe)
+	val, err := h.redisClient.Get(c.Request.Context(), "recipes").Result()
+	if err == redis.Nil {
+		log.Println("Request to MongoDB")
+		cur, err := h.collection.Find(c.Request.Context(), bson.D{})
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
-		recipes = append(recipes, recipe)
-	}
+		defer cur.Close(c.Request.Context())
 
-	c.JSON(http.StatusOK, recipes)
+		recipes := make([]models.Recipe, 0)
+		for cur.Next(c.Request.Context()) {
+			var recipe models.Recipe
+			err = cur.Decode(&recipe)
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+				return
+			}
+			recipes = append(recipes, recipe)
+		}
+
+		// save to redis
+		if recipesData, err := json.Marshal(&recipes); err == nil {
+			err = h.redisClient.Set(c.Request.Context(), "recipes", recipesData, 0).Err()
+			if err != nil {
+				log.Println("redis could not set", err.Error())
+			}
+		} else {
+			log.Println("could not serialize the recipes", err.Error())
+		}
+
+		c.JSON(http.StatusOK, recipes)
+	} else if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	} else {
+		log.Println("Request to redis")
+
+		recipes := make([]models.Recipe, 0)
+		err := json.Unmarshal([]byte(val), &recipes)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+
+		c.JSON(http.StatusOK, recipes)
+	}
 }
 
 // swagger:operation PUT /recipes/{id} recipes updateRecipe
@@ -137,6 +175,10 @@ func (h RecipesHandler) UpdateRecipeHandler(c *gin.Context) {
 		return
 	}
 
+	if err := h.redisClient.Del(c.Request.Context(), "recipes").Err(); err != nil {
+		log.Println("Error deleting the redis cache:", err.Error())
+	}
+
 	c.JSON(http.StatusOK, recipe)
 }
 
@@ -175,6 +217,10 @@ func (h RecipesHandler) DeleteRecipeHandler(c *gin.Context) {
 	if result.DeletedCount == 0 {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Recipe not found"})
 		return
+	}
+
+	if err := h.redisClient.Del(c.Request.Context(), "recipes").Err(); err != nil {
+		log.Println("Error deleting the redis cache:", err.Error())
 	}
 
 	// recipes = append(recipes[:index], recipes[index+1:]...)
