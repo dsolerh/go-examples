@@ -10,6 +10,7 @@ use (
 	./grpc_examples/route_guide
 	./grpc_examples/simple_service
 	./mocking_examples
+	./projects/async_server
 	./projects/chores
 	./projects/clean_arc
 	./projects/event_driven/mallbots

@@ -1,0 +1,44 @@
+name: async_server
+
+services:
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    networks:
+      - rabbit-tier
+      - redis-tier
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:3
+    container_name: rabbitmq-server
+    hostname: rabbitmq-host
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - rabbit-tier
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 10s
+      timeout: 10s
+      retries: 6
+      start_period: 30s
+
+  redis:
+    image: redis
+    container_name: some-redis
+    ports:
+      - 6379:6379
+    networks:
+      - redis-tier
+
+networks:
+  rabbit-tier:
+  redis-tier:
