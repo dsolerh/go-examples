@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 func main() {
-	example2()
+	example3()
 }
 
 func example1() {
@@ -25,4 +26,12 @@ func example2() {
 		val := number * tickRate / 1000
 		fmt.Printf("%d * %d / 1000 = %d\n", number, tickRate, val)
 	}
+}
+func example3() {
+	const a = 16
+	t := a * 1000 / 8
+	fmt.Printf("t: %v\n", t)
+	tt := time.Duration(t)*time.Millisecond - 10*time.Millisecond
+
+	fmt.Printf("tt: %s\n", tt)
 }

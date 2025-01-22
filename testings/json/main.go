@@ -8,10 +8,19 @@ import (
 )
 
 func main() {
-	err := exampleEcodeStream()
-	if err != nil {
-		fmt.Printf("err: %v\n", err)
-	}
+	// err := exampleEcodeStream()
+	// if err != nil {
+	// 	fmt.Printf("err: %v\n", err)
+	// }
+	exampleNil()
+}
+
+func exampleNil() {
+	var s any
+
+	b, err := json.Marshal(s)
+	fmt.Printf("err: %v\n", err)
+	fmt.Printf("b: %s\n", b)
 }
 
 func example1() {

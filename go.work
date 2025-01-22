@@ -11,7 +11,9 @@ use (
 	./grpc_examples/simple_service
 	./mocking_examples
 	./projects/chores
+	./projects/clean_arc
 	./projects/event_driven/mallbots
 	./projects/gin_service
+	./projects/sqlc_tuto
 	./testings
 )

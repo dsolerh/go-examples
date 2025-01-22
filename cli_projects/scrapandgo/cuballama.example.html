@@ -1,0 +1,1374 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Macro Head h-base h-base.ftl -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cuballama Viajes </title>
+        <meta name="description" content="">
+        <link rel="dns-prefetch" href="https://www.cuballama.com/viajes">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+        <link rel="shortcut icon" type="image/png" href="https://www.cuballama.com/viajes/resources/favicon.png">
+        <meta property="og:title" content="Cuballama Viajes">
+        <meta property="og:image" content="https://www.cuballama.com/viajes/resources/img/cubaviaja-logo.png">
+        <meta property="og:description" content="">
+        <meta property="og:url" content="https://www.cuballama.com/viajes{url}">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@cuballama">
+        <meta name="twitter:title" content="Cuballama Viajes">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="https://www.cuballama.com/viajes/resources/img/cubaviaja-logo.png">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/frmwrk/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/js/bootstrap-select/css/bootstrap-select.min.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="https://www.cuballama.com/viajes/resources/hresources/js/bootstrap-daterangepicker/daterangepicker.css" />-->
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/css/cubaviaja-styles.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/css/cubaviaja-styles.v3.css"/>
+        <link rel="stylesheet" type="text/css" href="https://www.cuballama.com/viajes/resources/hresources/css/cv-hotels.css"/>
+        <link rel="stylesheet prefetch" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/js/material-dropdown/marka/css/marka-core.css"/>
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/frmwrk/jquery-typeahead-master/dist/jquery.typeahead.min.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/css/cv-hotels-addnew.css"/>
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/hresources/css/activities.css"/>
+   <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/hresources/js/fotorama-4.6.4/fotorama.css"/>
+
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/frmwrk/datepicker/daterangepicker.css?v=1.0"/>
+        <link rel="stylesheet" type="text/css" href="https://www.cuballama.com/viajes/resources/frmwrk/datepicker/custom.css?v=1.0"/>
+        <link rel="stylesheet" type="text/css"
+              href="https://www.cuballama.com/viajes/resources/frmwrk/datepicker/custom2.css?v=1.0"/>
+
+        <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>-->
+        <link rel="stylesheet" href="https://www.cuballama.com/viajes/resources/vendor/intlTelInput/css/intlTelInput.css">
+
+        <link rel="stylesheet" type="text/css" href="https://www.cuballama.com/viajes/resources/frmwrk/multi-steps-form/style.css"/>
+
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1938849903078765');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1"
+src="https://www.facebook.com/tr?id=1938849903078765&ev=PageView
+&noscript=1"/>
+</noscript>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDJXNx7t7Mt7GOGpc18wGWM2FDgkTkjv3E",
+    authDomain: "viajes-3de31.firebaseapp.com",
+    projectId: "viajes-3de31",
+    storageBucket: "viajes-3de31.appspot.com",
+    messagingSenderId: "824649990716",
+    appId: "1:824649990716:web:4cbec2319c797814177939",
+    measurementId: "G-EFHQGQCQCJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  mFirebaseAnalytics = firebase.analytics();
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-792986928"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-792986928');
+</script>
+
+
+<script type="text/javascript">
+var sc_project=11785606; 
+var sc_invisible=1; 
+var sc_security="1bc270df"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="site stats"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11785606/0/1bc270df/1/" alt="site
+stats"></a></div></noscript>
+
+    <script type="text/javascript">
+        var cookieEnabled = (navigator.cookieEnabled) ? true : false
+        //if not IE4+ nor NS6+
+        if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) {
+            document.cookie = "testcookie"
+            cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false
+        }
+
+        if (!cookieEnabled && !window.location.href.includes("nocookies")) //if cookies are enabled on client's browser
+            window.location.replace("https://www.cuballama.com/viajes/nocookies");
+    </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+<body class="bg-grey">
+  <div class="loader-bg ">
+    <img src="https://www.cuballama.com/viajes/resources/img/logo-ico-loading.svg" alt="logo-loader" style="width:225px;"/>
+    <span class='loader-signal'></span>
+ <!--   <p class="loader-text" style="font-size:20px !important;" ><a href="https://www.cuballama.com/viajes/autos-en-cuba" target="_blank" style="color:#fff !important;"><b>Alquiler de Auto Geely CK desde $52 / día</b></a></p> -->
+  </div>
+<!-- Macro Fixed navbar lib-topmenup.ftl incluir b-b clase -->
+
+<nav id="header" class="navbar  " style="margin-bottom:0px!important;"><!-- ** Agregar Clase b-b si es Pagina interior si es el home pase se queda igual ** -->
+  <div id="header-container" class="container navbar-container">
+    <div class="navbar-header">
+      <div>
+        <!-- Sidenav menu Trigger with hamburger-->
+        <div id="homeSidenav" class="sidenav" style="z-index: 1001;">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!--     <a href="https://www.cuballama.com/viajes/vuelos" class="item active"><i class="icon icon-plane1-line"></i><span>Flights</span></a> -->
+
+            <a href="#" id="" data-toggle="collapse" data-target="#flight-submenu" aria-expanded="false" class="item">
+                <i class="icon icon-plane1-line"></i><span>Flights</span>
+            </a>
+            <ul class="nav collapse submenu" id="flight-submenu" role="menu" aria-labelledby="btn-1">
+                <li>
+                    <a data-href="https://www.cuballama.com/viajes/vuelos" href="#">
+                        <span style="padding-left:70px; display: block">  Cuba and World</span>
+                    </a>
+                </li>
+                <li>
+                    <a data-href="https://www.cuballama.com/blog/viajes/pasajes-de-cuba-a-nicaragua/" href="#">
+                        <span style="padding-left:70px;">Nicaragua</span> </a>
+                </li>
+                <li>
+                    <a data-href="https://www.cuballama.com/blog/viajes/pasajes-de-cuba-a-guyana/" href="#">
+                        <span style="padding-left:70px;">Guyana</span> </a>
+                </li>
+            </ul>
+
+
+            <a href="https://www.cuballama.com/viajes/hoteles-cuba" class="item hotel-item">
+            <i class="icon icon-hotel-line"></i>
+            <span>Hotels
+            </span>
+        </a>
+
+        <a href="https://www.cuballama.com/viajes/paquetes-vacacionales" class="item package-item">
+          <i class="icon icon-vuelo-y-hotel-line"></i>
+          <span>Packages</span>
+        </a>
+
+        <a href="https://www.cuballama.com/viajes/autos-en-cuba" class="item car-item">
+          <i class="icon icon-coche2-line"></i>
+          <span>Cars </span>
+        </a>
+        <a  href="https://www.cuballama.com/viajes/actividades" class="item"><i class="icon icon-sand-bucket"></i>
+            <span>Activities</span>
+        </a>
+        <a  href="https://www.cuballama.com/viajes/traslados-cuba" class="item transfer-item"><i class="icon icon-pax-3"></i>
+            <span>Transfers</span>
+        </a>
+
+<a href="#" id="" data-toggle="collapse" data-target="#tramite-submenu" aria-expanded="false" class="item">
+    <i class="icon icon-medal"></i><span>Formalities</span>
+</a>
+        <ul class="nav collapse submenu" id="tramite-submenu" role="menu" aria-labelledby="btn-1">
+     <!--           <li >
+                        <a  data-href="https://www.cuballama.com/tramites-migratorios/" href="#">
+                               <span style="padding-left:70px;">  Migratory</span>
+                        </a>
+                </li> -->
+                <li >
+                        <a  data-href="https://www.cuballama.com/blog/viajes/tramites/" href="#">
+                            <span style="padding-left:70px;">Passport & Visa</span>                        </a>
+                </li>
+        </ul>
+
+
+
+       <a id="extra-payment" href="https://www.cuballama.com/viajes/booking/charges-payment" class="item hidden">
+             <i class="icon icon-dollar-circle"></i><span>Pagos Pendientes</span>
+        </a>
+
+        <a  href="https://www.cuballama.com/" class="item"><i class="icon icon-cuballama"></i><span>Cuballama</span></a>
+        <a href="#" id="" data-toggle="collapse" data-target="#submenu1" aria-expanded="false" class="item">
+            <i class="icon icon-passport"></i>
+            <span>Language</span>
+        </a>
+        <ul class="nav collapse submenu" id="submenu1" role="menu" aria-labelledby="btn-1">
+                <li class="lang ">
+                        <a title="Español" data-href="https://www.cuballama.com/viajes/lang/es" href="#">
+                                <img src="https://www.cuballama.com/viajes/resources/img/flags/64/es.png" alt="Spanish" title="Spanish" /><span>Español</span>
+                        </a>
+                </li>
+                <li class="lang active">
+                        <a title="English" data-href="https://www.cuballama.com/viajes/lang/en" href="#">
+                                <img src="https://www.cuballama.com/viajes/resources/img/flags/64/en.png" alt="English" title="English" /><span>English</span>
+                        </a>
+                </li>
+        </ul>
+
+
+        <a href="" id="cls-session-mobile" class="item hidden">
+            <i class="icon icon-logout"></i><span>Close Session</span>
+        </a>
+        <div id="login-mobile" class="wrapper ">
+                <button class="btn btn-primary signin" data-toggle="modal" data-target="#accesoCuenta">Start Session</button>
+        </div>
+
+
+        <a data-toggle="modal" data-target="#ayuda-modal" class="item"><i class="icon icon-help-circle"></i><span>Help</span></a>
+     </div>
+        <div class="right visible-sm visible-xs" style="">
+          <span onclick="openNav();">
+            <span class="hamburger item"><span class="hamburger-box"><span class="hamburger-inner"></span></span></span>
+          </span>
+        </div>
+      </div>
+      <a id="brand" class="navbar-brand logo item" href="https://www.cuballama.com/viajes/vuelos">
+        <img class="img-responsive" src="https://www.cuballama.com/viajes/resources/img/logo-cubaviaja.svg" alt="Cuballama Viajes">
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+
+     <!--        <li class="active"><a href="https://www.cuballama.com/viajes/vuelos" class="item">Flights</a></li> -->
+
+          <li class="dropdown active">
+              <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true"
+                 aria-expanded="false">
+                  Flights
+              </a>
+              <ul class="dropdown-menu">
+                  <li class="active">
+                      <a href="https://www.cuballama.com/viajes/vuelos" class="item h-link">
+                          Cuba and World
+                      </a>
+                  </li>
+                  <li class="">
+                      <a href="https://www.cuballama.com/blog/viajes/pasajes-de-cuba-a-nicaragua/" class="item h-link">
+                          Nicaragua
+                      </a>
+                  </li>
+                  <li class="">
+                      <a href="https://www.cuballama.com/blog/viajes/pasajes-de-cuba-a-guyana/" class="item h-link">
+                          Guyana
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+        <li class="hotel-item"><a href="https://www.cuballama.com/viajes/hoteles-cuba" class="item h-link"> Hotels</a></li>
+        <li class="package-item"><a href="https://www.cuballama.com/viajes/paquetes-vacacionales" class="item h-link">Packages</a></li>
+        <li class="car-item"><a href="https://www.cuballama.com/viajes/autos-en-cuba" class="item ">Cars</a></li>
+        <li class="activity-item"><a href="https://www.cuballama.com/viajes/actividades" class="item ">Activities </a></li>
+        <li class="transfer-item"><a href="https://www.cuballama.com/viajes/traslados-cuba" class="item ">Transfers</a></li>
+          <li class="dropdown formalities-item">
+              <a href="#" class="dropdown-toggle item" data-toggle="dropdown" role="button" aria-haspopup="true"
+                 aria-expanded="false">
+                  Formalities
+              </a>
+              <ul class="dropdown-menu">
+              <!--    <li>
+                      <a href="https://www.cuballama.com/tramites-migratorios/" class="item h-link">
+                          Migratory
+                      </a>
+                  </li> -->
+                  <li class="hotel-item">
+                      <a href="https://www.cuballama.com/blog/viajes/tramites/" class="item h-link">
+                          Passport & Visa
+                      </a>
+                  </li>
+              </ul>
+          </li>
+
+
+      </ul>
+      <ul id="auth-info" class="nav navbar-nav navbar-right visible-lg visible-md">
+<!-- mi cuenta -->
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+           role="button" aria-haspopup="true" aria-expanded="false" style="padding-left: 0">
+            <i class="icon icon-user-circle"></i>
+            <span class="sign-in-text">Sign up</span>
+        </a>
+        <ul class="dropdown-menu" style="z-index: 1500">
+            <li>
+                <div class="wrapper">
+                    <button class="btn btn-primary signin" data-toggle="modal" data-target="#accesoCuenta">
+                        Start Session
+                    </button>
+                </div>
+            </li>
+            <li>
+                <a data-toggle="modal" data-target="#ayuda-modal" href="javascript:void(0)" class="item">
+                    <i class="icon icon-help-circle"></i>
+                    <span>Help</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+        <!-- idioma -->
+        <li class="dropdown">
+            <a href="#"  class="dropdown-toggle flag" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://www.cuballama.com/viajes/resources/img/flags/64/en.png" alt="English" title="English" />
+            </a>
+            <input id="lanpath" type="hidden" name="language.currentPath" value="/activity/search" />
+            <ul class="dropdown-menu">
+              <li class="lang active" data-page="/actividades">    <a href="#" data-href="https://www.cuballama.com/viajes/lang/en"
+       data-placeholder="#m-language">
+        <img src="https://www.cuballama.com/viajes/resources/img/flags/64/en.png" alt="English" title="English" />
+        <span>English</span>
+    </a>
+</li>
+              <li class="lang " data-page="/actividades">    <a href="#" data-href="https://www.cuballama.com/viajes/lang/es"
+       data-placeholder="#m-language">
+        <img src="https://www.cuballama.com/viajes/resources/img/flags/64/es.png" alt="Español" title="Español" />
+        <span>Español</span>
+    </a>
+</li>
+            </ul>
+        </li>
+
+
+
+      </ul>
+    </div>
+    <!-- /.nav-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<main class="activities-list">
+    <!-- ==== Elección del cliente visible en tablet/mobile ==== -->
+    <section class="xs  intro fix-top-section">
+        <div class="top-layer bg-img listadoactividades small">
+            <div class="container show-search">
+
+                <div class="buscador">
+                    <div class="hidden-search">
+                        <div class="trigger">
+                            <div class="show hidden-md hidden-lg">
+                                <table class="table table-bordered choice">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <h3><span>Matanzas</span></h3>
+                                        </td>
+                                        <td>
+                                            <h3>
+                                                    22/11 -
+                                                  - 31/01
+                                            </h3>
+                                        </td>
+                                        <td>
+                                            <span class="button-edit"><i class="icon-edit2"></i> <span
+                                                        class="hidden-xs">Update search</span></span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="flight-details">
+                            <div class="">
+                                <!-- Macro Hotel hsearchm h-search.ftl -->
+    <!-- ==== contenido - hoteles ==== -->
+    <div id="actividades">
+        <form id="sky">
+            <div class="row narrow-grid">
+                <!-- Origen y destino -->
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <label for="destination">Destino</label>
+                    <select id="destination" name="destination" class="selectpicker" data-style="form-control"
+                            data-size="5" title="Destino">
+                                <option value="ATL" class="no">Atlanta</option>
+                                <option value="CFG" class="no">Cienfuegos</option>
+                                <option value="HAV" class="no">Habana</option>
+                                <option value="LAS" class="no">Las Vegas</option>
+                                <option value="ORL" class="no">Orlando</option>
+                                <option value="USS" class="no">Sancti Spiritus</option>
+                                <option value="VRA" class="no">Varadero</option>
+                                <option value="VRO" class="si" selected>Matanzas</option>
+                                <option value="VIÑALES" class="no">Viñales</option>
+                                <option value="ARTEMISA" class="no">Artemisa</option>
+                    </select>
+                    <div id="err1" class="errord" style="display:none;">
+                        Selecciona un origen dentro de la lista para que podamos buscar su actividad.
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12 col-xxs-12 one-flight">
+                    <div id="date-inputs" class="double-input">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 pad-r-none ida">
+                                <label for="startDate">Desde</label>
+                                <div id="startDate" class="form-group">
+                                    <i class="icon-calendar-thin input-icon"></i>
+                                    <i class="middle icon-right icon-caret-arrow-right"></i>
+                                    <input id="ddate" size="20" name="value_from_start_date"
+                                           value="22/11/2024" readonly>
+                                </div>
+                            </div>
+                            <div id="secondInput" class="col-md-6 col-sm-6 col-xs-6 col-xxs-12 pad-l-none p-t vuelta2">
+                                <label for="endDate">Hasta</label>
+                                <div id="endDate" class="form-group">
+                                    <i class="icon-calendar-thin input-icon"></i>
+                                    <input id="adate" size="20" name="value_from_end_date"
+                                           value="31/01/2025" readonly="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- button search : visible en pantallas grandes -->
+                <div class="col-md-1 hidden-sm hidden-xs">
+                    <a href="javascript://"
+                       class="btn btn-block search btn-search hvr-radial-out hidden-sm hidden-xs"><i
+                                class="icon icon-search"></i></a>
+                </div>
+
+                <!-- button search : visible en tablet/mobile -->
+                <div class="col-sm-12 col-xs-12">
+                    <a href="javascript://"
+                       class="btn btn-block search btn-search hvr-back-pulse visible-sm visible-xs"><i
+                                class="icon icon-search"></i></a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            var formUrl = xurlroot + '/activity/search';
+            $('.btn-search').on('click', function (e) {
+                e.preventDefault();
+
+                const iata = $("#destination").val();
+                const destinationName = $("#destination option:selected").text();
+                if (!iata || !destinationName) {
+                    $('#err1').fadeIn(400).delay(3000).fadeOut(400);
+                    return false;
+                }
+
+
+                FormCreator.setAction(formUrl);
+
+                addFormFieldsActivitySearch(iata, destinationName);
+
+                $('.loader-bg').show();
+                FormCreator.sendForm();
+            });
+        });
+
+        function addFormFieldsActivitySearch(iata, destinationName) {
+            FormCreator.addField('attr_start_date', $('[name="value_from_start_date"]').val());
+            FormCreator.addField('attr_end_date', $('[name="value_from_end_date"]').val());
+            FormCreator.addField('attr_destination_iata', iata);
+            FormCreator.addField('attr_destination_name', destinationName);
+        }
+
+    </script>
+
+                            </div>
+                            <div class="intro-gap end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container">
+        <div class="gap gap-mini"></div>
+        <div class="row condensed-grid">
+
+            <div class="col-md-12">
+                <div class="row">
+
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="results htl pull-right results-activities">
+                                    <span id="counts-filtered">Showing 
+                                        <span id="total-hotel-showed"> 2</span>
+                                        <span id="total-amount-text" data-singular="activity"
+                                              data-plural="activities">
+                                            activities
+                                    </span> 
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+<div id="sort-by" class="panel">
+    <div class="hidden-xs col-sm-2">
+        <div class="main-title">Sort by:</div>
+    </div>
+    <div class="col-xs-9 col-sm-6">
+        <div class="btn-toolbar" role="group">
+            <div class="btn-group" role="group">
+                <button type="button" data-criteria="RECOMMENDED" data-direction="ASC"
+                        class=" sort btn btn-ghost btn-secondary active">
+                    Recommended
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.panel Ordenar por big screens -->
+
+
+<!-- /.panel Ordenar por small screens -->
+                <!-- signUp y Listado de hoteles -->
+                
+
+    <div class="Cards">
+            <div class="Card Medium relative">
+                <div class="d-flex flex-column align-items-start w-100">
+                    <div class="img-container">
+                        <a class="hotel-detail" role="button" href="javascript:;" data-id="10">
+                            <img data-src="https://d3tqkc1g440ozd.cloudfront.net/ActivityModel/i1726024270515.jpg"
+                                src="https://www.cuballama.com/viajes/resources/hresources/img/htl/default_hotel_image.jpeg"
+                                class="fit-img lazy" alt="Excursión Caleta Buena" title="Excursión Caleta Buena">
+                        </a>
+                    </div>
+                    <div class="FlexColumn p-1r">
+                        <div class="text-box">
+                            <h4>Excursión Caleta Buena</h4>
+                            <!-- Si necesitáis añadir una descripción -->
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-box">
+                    <div class="price-container">
+                        <div class="price price-activities">
+                            <span>$</span> 35.00
+                        </div>
+                        <div class="taxes"></div>
+                        <div class="taxes">
+                                by person
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-block btn-line act-detail" href="javascript:;" data-id="10">See Activity</a>
+                </div>
+            </div>
+            <div class="Card Medium relative">
+                <div class="d-flex flex-column align-items-start w-100">
+                    <div class="img-container">
+                        <a class="hotel-detail" role="button" href="javascript:;" data-id="14">
+                            <img data-src="https://d3tqkc1g440ozd.cloudfront.net/ActivityModel/i1726024260409.jpeg"
+                                src="https://www.cuballama.com/viajes/resources/hresources/img/htl/default_hotel_image.jpeg"
+                                class="fit-img lazy" alt="Excursión a Ciénaga de Zapata" title="Excursión a Ciénaga de Zapata">
+                        </a>
+                    </div>
+                    <div class="FlexColumn p-1r">
+                        <div class="text-box">
+                            <h4>Excursión a Ciénaga de Zapata</h4>
+                            <!-- Si necesitáis añadir una descripción -->
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-box">
+                    <div class="price-container">
+                        <div class="price price-activities">
+                            <span>$</span> 15.00
+                        </div>
+                        <div class="taxes"></div>
+                        <div class="taxes">
+                                by person
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-block btn-line act-detail" href="javascript:;" data-id="14">See Activity</a>
+                </div>
+            </div>
+    </div>                                                                                                                                                                              <!-- ==== /.panel hotel 8 ==== -->
+
+            </div>
+
+            <!--<div class="intro-gap"></div>-->
+        </div>
+        
+        
+    </section>
+</main>
+<footer id="main-footer">
+  <div class="container">
+    <div class="row row-wrap">
+      <div class="col-md-3"><a class="logo" href="https://www.cuballama.com/viajes"><img class="foo" src="https://www.cuballama.com/viajes/resources/img/cubaviaja-logo-foo@2x.svg" alt="logo CubaViaja" title="logo CubaViaja" /></a>
+        <p class="lead mb10">Follow us and get the better offers</p>
+        <p class="mb20">You only have to think how to enjoy your free time, we find for you the cheapest flights as well as the ones with more luggage capacities.</p>
+          <nav class="MuiStack-root css-nav-social" aria-label="Redes sociales">
+              <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-alink-social" tabindex="0"
+                 aria-label="Instagram" href="https://www.instagram.com/cuballamaoficial/" target="_blank">
+                  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-svg-social" focusable="false"
+                       aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M16.459,0.501L7.541,0.501C3.659,0.501 0.5,3.66 0.5,7.542L0.5,16.459C0.5,20.341 3.659,23.5 7.541,23.5L16.459,23.5C20.341,23.5 23.5,20.341 23.5,16.459L23.5,7.546C23.5,3.659 20.341,0.5 16.459,0.5L16.459,0.501ZM21.779,16.459C21.779,19.393 19.393,21.779 16.459,21.779L7.541,21.779C4.607,21.779 2.221,19.393 2.221,16.459L2.221,7.546C2.221,4.612 4.607,2.226 7.541,2.226L16.459,2.226C19.393,2.226 21.779,4.612 21.779,7.546L21.779,16.459ZM12,6.182C8.792,6.182 6.181,8.792 6.181,12C6.181,15.208 8.792,17.818 12,17.818C15.207,17.818 17.818,15.208 17.818,12C17.818,8.792 15.207,6.182 12,6.182ZM12,16.054C9.765,16.054 7.946,14.235 7.946,12C7.946,9.765 9.765,7.946 12,7.946C14.234,7.946 16.054,9.765 16.054,12C16.054,14.235 14.234,16.054 12,16.054ZM19.505,5.845C19.505,6.59 18.901,7.194 18.155,7.194C17.41,7.194 16.806,6.59 16.806,5.845C16.806,5.099 17.41,4.495 18.155,4.495C18.901,4.495 19.505,5.099 19.505,5.845Z"></path>
+                  </svg>
+                  <span class="MuiTouchRipple-root css-social-span-root"></span>
+              </a>
+              <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-alink-social" tabindex="0"
+                 aria-label="Facebook" href="https://www.facebook.com/Cuballamaoficial" target="_blank">
+                  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-svg-social" focusable="false"
+                       aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M13.773,8.036L13.773,6.054C13.773,5.756 13.787,5.525 13.815,5.363C13.842,5.201 13.905,5.04 14.003,4.881C14.101,4.723 14.259,4.614 14.478,4.554C14.696,4.493 14.987,4.463 15.35,4.463L17.332,4.463L17.332,0.5L14.163,0.5C12.33,0.5 11.013,0.935 10.214,1.804C9.414,2.674 9.013,3.956 9.013,5.65L9.013,8.036L6.641,8.036L6.641,12L9.013,12L9.013,23.5L13.773,23.5L13.773,12L16.941,12L17.359,8.036L13.773,8.036Z"></path>
+                  </svg>
+                  <span class="MuiTouchRipple-root css-social-span-root"></span>
+              </a>
+              <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-alink-social" tabindex="0"
+                 aria-label="X" href="https://twitter.com/cuballama" target="_blank">
+                  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-svg-social" focusable="false"
+                       aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M19.112,2.105L22.641,2.105L14.934,10.911L24,22.895L16.903,22.895L11.341,15.629L4.983,22.895L1.45,22.895L9.691,13.475L1,2.105L8.277,2.105L13.3,8.747L19.112,2.105ZM17.873,20.786L19.827,20.786L7.212,4.104L5.113,4.104L17.873,20.786Z"></path>
+                  </svg>
+                  <span class="MuiTouchRipple-root css-social-span-root"></span>
+              </a>
+              <a class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-alink-social" tabindex="0"
+                 aria-label="Youtube" href="https://www.youtube.com/user/cuballama" target="_blank">
+                  <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-svg-social" focusable="false"
+                       aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M23.488,10.074C23.479,9.612 23.442,9.028 23.378,8.322C23.314,7.618 23.221,6.986 23.102,6.43C22.964,5.805 22.668,5.279 22.21,4.851C21.752,4.424 21.219,4.175 20.613,4.107C18.712,3.893 15.842,3.786 12,3.786C8.158,3.786 5.288,3.893 3.388,4.107C2.781,4.175 2.25,4.424 1.797,4.851C1.344,5.279 1.048,5.805 0.911,6.43C0.784,6.986 0.687,7.617 0.623,8.322C0.558,9.029 0.522,9.612 0.513,10.074C0.505,10.536 0.5,11.178 0.5,12C0.5,12.822 0.505,13.463 0.513,13.926C0.522,14.388 0.558,14.972 0.623,15.677C0.687,16.382 0.778,17.014 0.899,17.57C1.036,18.195 1.333,18.721 1.79,19.149C2.248,19.576 2.781,19.824 3.388,19.893C5.288,20.107 8.158,20.214 12,20.214C15.842,20.214 18.712,20.107 20.613,19.893C21.22,19.825 21.75,19.576 22.203,19.149C22.657,18.721 22.952,18.194 23.089,17.57C23.217,17.014 23.313,16.383 23.378,15.677C23.443,14.971 23.479,14.388 23.488,13.926C23.496,13.463 23.5,12.822 23.5,12C23.5,11.178 23.496,10.536 23.488,10.074ZM16.543,12.692L9.972,16.8C9.851,16.885 9.707,16.927 9.535,16.927C9.408,16.927 9.275,16.893 9.138,16.825C8.856,16.671 8.715,16.431 8.715,16.106L8.715,7.892C8.715,7.567 8.856,7.328 9.138,7.173C9.429,7.019 9.708,7.028 9.972,7.199L16.544,11.307C16.8,11.451 16.929,11.683 16.929,12C16.929,12.316 16.8,12.547 16.543,12.692Z"></path>
+                  </svg>
+                  <span class="MuiTouchRipple-root css-social-span-root"></span>
+              </a>
+          </nav>
+      </div>
+      <div class="col-md-3">
+        <ul class="list list-footer">
+          <h4>know us</h4>
+          <li><a class="menu-foo" href="https://www.cuballama.com/viajes/aboutus">Why choose Cuballama Viajes?</a></li>
+          <li><a class="menu-foo" href="https://www.cuballama.com/viajes/terms#pchanges">General Conditions</a></li>
+          <li><a class="menu-foo" href="https://www.cuballama.com/viajes/terms#pprivacy">Privacy Policy</a></li>
+          <li><a class="menu-foo" href="https://www.cuballama.com/viajes/terms#pcookies">Cookies Policy</a></li>
+          <li><a class="menu-foo" href="https://www.cuballama.com">Cuballama</a></li>
+        </ul>
+      </div>
+        <!--  <li><a class="menu-foo" href="#">Contact us</a></li>
+          <li><a class="menu-foo" href="#">Airlines Information</a></li>
+          <li><a class="menu-foo" href="#">Most wanted destinations</a></li>
+          <li><a class="menu-foo" href="#">Holidays over the World</a></li> -->
+      <div class="col-md-3">
+        <h4>Still with doubts?</h4>
+        <p class="mb20">If you have doubts on how to purchase a flight or payment forms, select one of our information channels to quickly find your answers.</p>
+        <div class="">
+            <ul class="list list-horizontal list-space help-list">
+                <li>
+                    <a href="https://www.cuballama.com/viajes/faqs" class="" rel="tooltip" title="" data-placement="bottom" data-original-title="Frequently Asked Questions">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48" xml:space="preserve">
+                      <path d="M24 43C13.5 43 5 34.5 5 24S13.5 5 24 5s19 8.5 19 19-8.5 19-19 19zm0-36.5C14.4 6.5 6.5 14.4 6.5 24S14.3 41.5 24 41.5c9.6 0 17.5-7.8 17.5-17.5 0-9.6-7.9-17.5-17.5-17.5z"/>
+                            <path d="M25.4 24.4c-1 1-1.1 2.1-1.1 4.1 0 .4-.3.8-1 .8-.6 0-.9-.3-.9-1 0-3 .6-4 1.4-4.8 1.2-1.2 3.2-2.4 3.2-5 0-2.1-1.3-3.3-3.6-3.3-2.6 0-2.7 1.6-3.6 1.6-.4 0-.9-.3-.9-.9 0-1 1.8-2.5 4.6-2.5 3.6 0 5.5 2.2 5.5 4.9.1 3.3-2.6 5-3.6 6.1zm-.6 8.6c0 .8-.6 1.5-1.5 1.5-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5c.9 0 1.5.7 1.5 1.5z"/>
+                    </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:786-4086400" class="" rel="tooltip" title="" data-placement="bottom" data-original-title="Call Center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48" xml:space="preserve">
+                        <path d="M40.2 20.4h-1.3v-.5C38.9 11.7 32.2 5 24 5S9 11.6 9 19.9v.5H7.7c-1.5 0-2.8 1.3-2.8 2.8v3.6c0 1.5 1.3 2.8 2.8 2.8h2c.4 0 .8-.3.8-.8v-9c0-7.4 6-13.4 13.4-13.4s13.4 6 13.4 13.4v10.8c0 1.7-.9 3.2-2.3 4 .3-1 .5-2.1.5-3.2v-8.3c0-.4-.3-.8-.8-.8-3.9 0-7.1-3.2-7.1-7.1 0-.4-.3-.8-.8-.8-.4 0-.8.3-.8.8 0 3.9-3.2 7.1-7.1 7.1h-5.8c-.4 0-.8.3-.8.8v8.3c0 6.4 5.2 11.6 11.6 11.6 4.5 0 8.4-2.6 10.3-6.4 2.6-.7 4.6-3.1 4.6-6v-1h1.3c1.5 0 2.8-1.3 2.8-2.8v-3.6c.1-1.5-1.2-2.8-2.7-2.8zM9 28.1H7.7c-.7 0-1.3-.6-1.3-1.3v-3.6c0-.7.6-1.3 1.3-1.3H9v6.2zm25.1 3.4c0 1.4-.3 2.7-.8 3.8-.2 0-.4.1-.6.1h-5.6C26.8 34 25.5 33 24 33c-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2c1.5 0 2.7-1 3.1-2.4h5.4c-1.8 2.8-4.9 4.7-8.5 4.7-5.6 0-10.1-4.5-10.1-10.1v-7.5H19c3.5 0 6.5-2.1 7.9-5.1 1.3 2.8 4 4.8 7.2 5.1v7.4zm-8.4 4.6c0 .9-.8 1.7-1.7 1.7s-1.7-.8-1.7-1.7.8-1.7 1.7-1.7 1.7.8 1.7 1.7zm15.8-9.3c0 .7-.6 1.3-1.3 1.3h-1.3v-6.2h1.3c.7 0 1.3.6 1.3 1.3v3.6z"/>
+                      </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:ayuda@cubaviaja.com" class="" rel="tooltip" title="" data-placement="bottom" data-original-title="Support email">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48" xml:space="preserve">
+                          <path d="M36.8 10.7H11.2c-2.2 0-4 1.8-4 4v18.5c0 2.2 1.8 4 4 4h25.5c2.2 0 4-1.8 4-4V14.7c.1-2.2-1.7-4-3.9-4zm-25.6 1.5h25.5c1 0 1.8.5 2.2 1.3L23.8 25.1 8.9 13.8c.4-.9 1.3-1.6 2.3-1.6zm25.6 23.6H11.2c-1.4 0-2.5-1.1-2.5-2.5V15.6l14.6 11c.1.1.3.2.5.2s.3-.1.5-.2l15-11.4v18c-.1 1.5-1.1 2.6-2.5 2.6z"/>
+                      </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://api.whatsapp.com/send?phone=17864086400" target="_blank" class="" rel="tooltip" title="" data-placement="bottom" data-original-title="Contact by WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="enable-background:new 0 0 48 48" xml:space="preserve">
+                                    <path d="M24 43c-3 0-6.1-.7-8.7-2.1L6 42.7c-.2 0-.5 0-.7-.2s-.3-.4-.2-.7L7 32.5C5.7 29.9 5 27 5 24 5 13.5 13.5 5 24 5s19 8.5 19 19-8.6 19-19 19zm-8.6-3.7c.1 0 .2 0 .4.1 2.5 1.4 5.4 2.1 8.3 2.1 9.7 0 17.5-7.9 17.5-17.5S33.6 6.5 24 6.5 6.5 14.3 6.5 24c0 2.8.7 5.6 2 8.1.1.2.1.3.1.5L6.8 41l8.4-1.7h.2z"/>
+                            <path d="M31.3 34.5c-3 0-7.5-2.4-11.1-6C16.5 24.8 14 20 14.3 17c.1-1.2.6-1.7 1.1-2 .1 0 1.3-.8 2.1-1.2 1.4-.8 2.2 0 2.6.7l1 1.5c.5.8 1 1.6 1.2 1.9.3.5.7 1.5-.6 2.5-.1.1-.3.2-.5.3-.2.1-.5.3-.5.5 0 .1 0 .1.2.5.3.4.5.8.8 1.2.6.8 1.3 1.6 2 2.3.7.7 1.5 1.3 2.3 2 .4.3.8.5 1.2.8.3.2.4.2.5.2s.3-.3.5-.5c.1-.2.2-.3.3-.5 1-1.3 2-.9 2.5-.6.3.2 1.2.7 1.9 1.2l1.5 1c.7.4 1.5 1.2.7 2.6-.4.8-1.2 2-1.2 2-.3.4-.9 1-2 1.1h-.6zm-10-7c3.7 3.7 8.2 5.7 10.3 5.5.5 0 .8-.2.9-.4 0 0 .8-1.2 1.2-2l.1-.3s-.1-.1-.4-.3l-1.5-1c-.8-.5-1.6-1-1.9-1.2-.2-.1-.3-.2-.6.3-.1.1-.2.2-.2.3-.3.4-.6.9-1.2 1.2-.8.3-1.4-.1-1.7-.3-.5-.3-.9-.6-1.3-.9-.9-.7-1.8-1.4-2.5-2.1s-1.5-1.6-2.1-2.5c-.3-.4-.6-.8-.9-1.3-.2-.3-.6-.9-.3-1.7.2-.6.8-1 1.2-1.2.1-.1.2-.2.3-.2.4-.3.4-.4.3-.6-.2-.3-.7-1.1-1.2-1.9l-1-1.5c-.2-.3-.3-.4-.3-.4s-.1 0-.3.1c-.8.4-2 1.2-2 1.2-.2.1-.4.5-.4.9-.2 2.1 1.8 6.6 5.5 10.3z"/>
+                                </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+        <div class="col-md-3">
+            <h4>Accreditations</h4>
+            <ul class="list list-footer accreditations">
+                <li id="iata-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" title="International Air Transport Association (IATA) logo" viewBox="0 0 340.2 218.3" style="enable-background:new 0 0 340.2 218.3" xml:space="preserve">
+                            <path d="m48.8 217.5 13.8-69h22.5l-13.8 69H48.8zm67.9-22.6H131l-3.7-25.3-10.6 25.3zm-31.6 22.6 34.1-69h22.2l14 69h-20.9l-1.3-8.2H111l-3.5 8.2H85.1zm91 0 7.7-51.9h-19.7l3.4-17.4H228l-3.4 17.4h-18.8l-7.6 51.9h-22.1zm75.7-22.6h14.3l-3.7-25.3-10.6 25.3zm-31.5 22.6 34-69h22.2l14 69h-21l-1-8.2h-22.2l-3.5 8.2h-22.5zm119.4-147h-106c-3.9 19.4-17.4 35.6-44.2 46.8 3 9.2 13.4 17.7 24.2 17.7h57.5c8.8 0 15.7-7.4 18.5-13.3h-58.4c-3.6-.6-3.8-3.5-.2-3.8h57.4c7.4 0 14.2-6.3 18.1-13.2h-66.9c-3.4-.5-3.4-3.4 0-3.9h67.4c6.8 0 13-7.9 15.6-13.2h-74c-3.7-.5-3.7-3.9 0-4H324c6-.1 11.7-6.5 15.7-13.1zM.4 70.5h106c3.8 19.4 17.4 35.6 44.1 46.8-3 9.2-13.4 17.7-24.2 17.7H68.9c-8.8 0-15.7-7.4-18.5-13.3h58.4c3.5-.6 3.8-3.5.2-3.8H51.4c-7.4 0-14.2-6.3-18-13.2h66.9c3.4-.5 3.4-3.4 0-3.9H33c-6.8 0-13-7.9-15.6-13.2h74c3.7-.5 3.7-3.9 0-4H16.1c-6-.1-11.7-6.5-15.7-13.1zm135.3-58.2c3.9 3.4 8.3 6.3 13 8.2 4-7.8 9.5-14.5 16-20.5-10.6 1.4-20.5 5.4-29 12.3zm-18.8 38.5h23.6c.5-9.7 2.6-18.2 6.4-27-5.2-2.3-9.8-5.2-14.2-8.9-9.7 9.8-15.1 22.4-15.8 35.9zm51.3-22.1v22.1h-23.6c.2-8.7 2.2-17.6 5.9-25.6 5.6 2 11.7 3.3 17.7 3.5zm36.2-16.4c-3.8 3.4-8.4 6.3-13 8.2-4.2-8-9.5-14.4-16-20.4 10.7 1.3 20.6 5.3 29 12.2zm18.7 38.5h-23.5c-.3-9.5-2.5-18.5-6.3-27 5-2.3 9.8-5.3 13.9-8.9 10.2 10.2 15.5 22.7 15.9 35.9zm-51-22.1v22.1h23.5c0-8.9-2.2-17.4-5.9-25.6-5.7 2-11.7 3.3-17.6 3.5zm-36.4 64.6c3.9-3 8.4-6.4 13-8.1 4.2 7.9 9.5 14.4 16 20.3-10.6-1.4-20.7-5.4-29-12.2zm-18.8-38.6h23.6c.5 9.8 2.6 18.4 6.4 27.2-5.2 2.3-9.8 5.2-14.2 8.8-9.5-9.7-15.1-22.3-15.8-36zm51.3 22.2V54.7h-23.6c.2 8.9 2.2 17.7 5.9 25.6 5.6-2 11.7-3.3 17.7-3.4zm36.2 16.4c-3.7-3.2-8.4-6.2-13-8.1-4.2 7.9-9.5 14.4-16 20.3 10.7-1.4 20.6-5.4 29-12.2zm18.7-38.6h-23.5c-.3 9.8-2.4 18.5-6.3 27.2 5 2.3 9.5 5.2 13.9 8.8 9.8-9.7 15.5-22.6 15.9-36zm-51 22.2V54.7h23.5c0 8.9-2.2 17.6-5.9 25.6-5.5-2-11.8-3.3-17.6-3.4zm-3.9-74.6c-6.4 5.2-12.1 12.2-15.9 19.5 5.1 1.7 10.5 3.1 15.9 3.1V2.3zm3.9 0c6.3 5.2 12 12 15.7 19.5-5.1 1.9-10.5 3.1-15.7 3.1V2.3zm-3.9 101c-6.4-5.1-12.1-12.1-15.9-19.6 5.1-1.8 10.5-2.8 15.9-2.8v22.4zm3.9.1c6.3-5.2 12-12.3 15.7-19.8-5.1-1.6-10.5-2.8-15.7-2.8v22.6z" style="fill:#ffffff"/>
+                        </svg>
+                </li>
+                <li id="arc-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" title="Airlines Reporting Corporation (ARC) logo" viewBox="0 0 340.2 218.3" style="enable-background:new 0 0 340.2 218.3" xml:space="preserve">
+                            <path d="M309.1 131.1c-3.8 11.6-12.7 19.6-28.6 19.6-18.4 0-30.9-15.9-30.9-35.5s12.5-35.5 30.9-35.5c14.2 0 23.7 8 28.1 19.6h31c-5.1-29.4-25.1-48.4-60.1-48.4-37.8 0-63.4 28.8-63.4 64.4 0 35.6 25.6 64.4 63.4 64.4 39.2 0 56.1-19.8 60.3-48.4h-30.7zm-124.2 2.2c11.2-8.2 18.5-21.4 18.5-36.4 0-24.9-20.2-45-45-45H99.2l13.4 28.9h45.8c8.9 0 16.1 7.2 16.1 16.1s-7.2 16.1-16.1 16.1h-30.8l13.4 29h10.8l21.6 36.3h38.2l-26.7-45zm-87 44.9h33.4L72.7 51.8H58.8L.1 178.2h33.4l6.6-15.6h51.1l6.7 15.6zm-46.2-42.8 14.1-33.3 14.1 33.3H51.7z" style="fill:#ffffff"/>
+                        </svg>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+  <!-- copyright -->
+  <div class="container legal">
+    <div class="gap-small gap"></div>
+    <div class="wrapper">
+      <p>CUBALLAMA VIAJES COPYRIGHT © 2024 ALL RIGHTS RESERVED</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Macro body -->
+
+    <div id="accesoCuenta" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="login-modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Multi step form -->
+                    <section class="multi_step_form">
+                        <form id="msform">
+
+                            <!-- step 1 -->
+                            <fieldset id="step-1">
+                                <div>
+                                    <h3>Access to your account</h3>
+                                    <p>Please enter your phone number. We will send you an SMS to verify it.</p>
+                                    <div class="form-group">
+                                        <label for="mobilePhone" class="label-phone">Phone</label>
+                                        <input id="mobilePhone" name="phone" type="tel" autocomplete="tel"/>
+                                    </div>
+                                    <div class="form-group col-sm-12 captcha-div">
+                                        <div class="g-recaptcha"
+                                             data-sitekey="6LfDsRoaAAAAACBXlsdPRVZAaXd0kd6g8RJyzOzg">
+                                        </div>
+                                    </div>
+
+                                    <!--<div class="form-row">
+                                        <div class="form-group col-sm-5">
+                                            <input type="tel" id="phone" class="form-control" placeholder="+1">
+                                        </div>
+                                        <div class="form-group col-sm-7">
+                                            <input id="mobilePhone" type="text" class="form-control" placeholder="">
+                                        </div>
+                                    </div>-->
+                                    <!--<div class="form-row">
+                                    <div class="form-group col-sm-12">
+                                        <div class="g-recaptcha" data-sitekey="6LfDsRoaAAAAACBXlsdPRVZAaXd0kd6g8RJyzOzg"></div>
+                                    </div>
+                                </div>-->
+
+                                    <!--<label for="phone">Teléfono</label>
+                                    <input id="phone" name="phone" type="tel" />
+                                    <input type="button" name="next" class="next action-button" value="Continuar" />
+
+                                    <div class="footer">
+                                        <p class="legal-acceptance">Al continuar aceptas nuestros <a href="https://www.cuballama.com/viajes/terms" target="_blank" rel="noopener noreferrer">Términos y condiciones</a></p>
+                                    </div>-->
+
+                                    <div class="form-row hidden phone-error-field">
+                                        <div class="form-group col-sm-12">
+                                            <span class="hidden" id="error_1100">Telephone number is required</span>
+                                            <span class="hidden" id="error_1101">Invalid phone number</span>
+                                            <span class="hidden" id="error_1105">Captcha required</span>
+                                            <span id="phone-error" style="color:red;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="button" name="next"
+                                        class="next action-button">Continue</button>
+
+                                <div class="footer">
+                                    <p class="legal-acceptance">Al continuar aceptas nuestros <a
+                                                href="https://www.cuballama.com/viajes/terms" target="_blank"
+                                                rel="noopener noreferrer">Términos y condiciones</a></p>
+                                </div>
+                            </fieldset>
+
+                            <!-- step 2 -->
+                            <fieldset id="step-2">
+                                <h3>Check your phone</h3>
+                                <p>Enter the code that we have sent you to
+                                    <span id="current-phone"></span>
+                                    <span id="title12" class="hidden">Update</span>
+                                </p>
+
+                                <div class="pin-box">
+                                    <div class="code_group">
+                                        <input id="pin-1" type="text" class="form-control" maxlength="4"
+                                               pattern="[0-9]{1,4}" inputmode="numeric" autocomplete="off">
+                                        <input id="pin-2" type="text" class="form-control" maxlength="1"
+                                               pattern="[0-9]{1,4}" inputmode="numeric" autocomplete="off">
+                                        <input id="pin-3" type="text" class="form-control" maxlength="1"
+                                               pattern="[0-9]{1,4}" inputmode="numeric" autocomplete="off">
+                                        <input id="pin-4" type="text" class="form-control" maxlength="1"
+                                               pattern="[0-9]{1,4}" inputmode="numeric" autocomplete="off">
+                                    </div>
+                                    <span id="title5" class="hidden">Receive new code in</span>
+                                    <p class="time-counter"></p>
+                                </div>
+
+                                <div id="div-email-sign-up" class="form-group col-sm-12 hidden">
+                                    <label for="email-sign-up">Correo electrónico para el registro</label>
+                                    <input id="email-sign-up" name="email-sign-up" style="max-width: 300px" type="email"/>
+                                </div>
+                                <div class="form-row hidden email-error-field">
+                                    <div class="form-group col-sm-12">
+                                        <span class="hidden" id="error_1120" style="color:red;">The email is already registered in Cuballama</span>
+                                        <span class="hidden" id="error_1122" style="color:red;">Invalid email</span>
+                                    </div>
+                                </div>
+
+                                <button type="button" name="sign-up-test" id="btn-sign-test"
+                                        class="sign-up action-button hidden">Pin test</button>
+
+                                <button type="button" name="sign-up" id="btn-sign-up"
+                                        class="sign-up action-button hidden">Sign Up</button>
+
+                                <div class="footer">
+                                    <p>Have you not received your code?
+                                        <a id="reenviarPin" tabindex="1" class="" href="javascript:;" rel="popover"
+                                           data-placement="top" data-popover-content="#options-popover">
+                                            Forward code
+                                        </a>
+                                    </p>
+                                </div>
+                                <div id="options-popover" class="hide">
+                                    <h3 class="popover-title">
+                                        <button type="button" class="close pull-right" data-dismiss="popover">×</button>
+                                    </h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <h3 class="popover-title">
+                                            <button type="button" class="close pull-right" data-dismiss="popover">×
+                                            </button>
+                                        </h3>
+                                        <li><a class="nav-link pin-delivery" data-value="SMS"
+                                               href="javascript:;">Receive code by SMS</a></li>
+                                        <li><a class="nav-link pin-delivery" data-value="CALL"
+                                               href="javascript:;">Receive code by Call</a></li>
+                                        <li><a class="nav-link pin-delivery" data-value="WHATSAPP"
+                                               href="javascript:;">Receive code by Whatsapp</a></li>
+                                        <li><a class="nav-link pin-popover-cancel"
+                                               href="javascript:;">Cancel</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="form-row hidden code-error-field">
+                                    <div class="form-group col-sm-12">
+                                        <span class="hidden" id="error_1110">The entered code is incorrect</span>
+                                        <span id="code-error" style="color:red;"></span>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- login modal content -->
+    <div id="login-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+
+            <!-- login modal content -->
+            <div class="modal-content" id="login-modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-8 text-center">
+                            <h5 class="panel.change-flights a span">Enter your Cuballama credentials</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="Login-Form" role="form" action="https://www.cuballama.com/viajes/login">
+                        <div class="form-group">
+                            <input name="email" id="login-email" type="email" class="form-control input-lg"
+                                   placeholder="Email" required data-parsley-type="email"/>
+                        </div>
+                        <div class="form-group">
+                            <input name="password" id="login-password" type="password" class="form-control input-lg"
+                                   placeholder="Password"
+                                   required data-parsley-length="[6, 10]" data-parsley-trigger="keyup"/>
+                        </div>
+                        <!--          <div class="checkbox">
+            <label>
+              <input name="remember" type="checkbox" value="">
+              Remember me</label>
+          </div>-->
+                        <button id="login-submit"
+                                class="btn btn-primary loginmodal-submit">Start Session</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div id="login-notification" class="alert alert-danger hidden">
+                        Invalid username or password
+                    </div>
+                    <!--<p><a class="mrg" id="FPModal" href="javascript:void(0)">Forgot Password?</a>·<a class="mrg" id="signupModal" href="javascript:void(0)">Create a new account</a></p>-->
+                </div>
+            </div>
+            <!-- /.login modal content -->
+
+            <!-- signup modal content -->
+            <div class="modal-content" id="signup-modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="Signin-Form" role="form">
+                        <div class="form-group">
+                            <input name="email" id="signup-email" type="email" class="form-control input-lg"
+                                   placeholder="Email" required data-parsley-type="email">
+                        </div>
+                        <div class="form-group">
+                            <input name="password" id="signup-passwd" type="password" class="form-control input-lg"
+                                   placeholder="Password" required data-parsley-length="[6, 10]"
+                                   data-parsley-trigger="keyup">
+                        </div>
+                        <div class="form-group">
+                            <input name="password" id="signup-confirm-passwd" type="password"
+                                   class="form-control input-lg" placeholder="Confirm the password" required
+                                   data-parsley-equalto="#passwd" data-parsley-trigger="keyup">
+                        </div>
+                        <button type="submit"
+                                class="btn btn-primary loginmodal-submit">Create a new account</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>Do you have an account?<a id="loginModal"
+                                                       href="javascript:void(0)">Start Session</a></p>
+                </div>
+            </div>
+            <!-- /.signup modal content -->
+
+            <!-- forgot password content -->
+            <div class="modal-content" id="forgot-password-modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="Forgot-Password-Form" role="form">
+                        <div class="form-group">
+                            <input name="email" id="forgot-email" type="email" class="form-control input-lg"
+                                   placeholder="Email" required data-parsley-type="email">
+                        </div>
+                        <button type="submit"
+                                class="btn btn-primary loginmodal-submit">Send</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p>Remember the password?<a id="loginModal1"
+                                                        href="javascript:void(0)">Start Session</a></p>
+                </div>
+            </div>
+            <!-- /.forgot password content -->
+
+        </div>
+
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!--    AYUDA MODAL    -->
+    <div class="modal fade" id="ayuda-modal" tabindex="-1" role="dialog" aria-labelledby="AyudaModal"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close invert" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <h3 class="modal-title" id="modal-label1">How can we help you?</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body padder-lg">
+                    <div class="gap-small gap"></div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="feature m-b-none">
+                                <div class="icon text-center"><span
+                                            class="icon-help box-icon-md box-icon-border box-icon-center round"></span>
+                                </div>
+                                <h4>Frequently Asked Questions</h4>
+                                <p class="mb20">If you have doubts on how to purchase a flight or payment forms, you will find your answer here.</p>
+                                <button class="btn btn-ghost btn-primary" data-dismiss="modal" aria-hidden="false"
+                                        onclick="$(document).modal('hide');window.location.href='https://www.cuballama.com/viajes/faqs';">Go to Frequently Asked Questions</button>
+                                <div class="gap-sm"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature m-b-none">
+                                <div class="icon"><span
+                                            class="icon-chat box-icon-md box-icon-border box-icon-center round"></span>
+                                </div>
+                                <h4>Chat with us</h4>
+                                <p class="mb20">Fast and easy. Our customer service team will immediately solve all your doubts through our live chat.</p>
+                                <button class="btn btn-ghost btn-primary" data-dismiss="modal" aria-hidden="false"
+                                        onclick="$('#modal-ayuda').modal('hide');openChat();">Start chat</button>
+                                <div class="gap-sm"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature m-b-none">
+                                <div class="icon"><span
+                                            class="icon-callcenter box-icon-md box-icon-border box-icon-center round"></span>
+                                </div>
+                                <h4>Call us</h4>
+                                <p>If you prefer to call us, we will be glad to solve all of your doubts.</p>
+                                <a class="text-phone" href="tel:7864086400">786-4086400</a></div>
+                        </div>
+                    </div>
+                    <div class="gap-small gap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--     /.AYUDA MODAL     -->
+
+    <script  type="application/javascript">
+        const isLoginCurrentUser = false;
+        console.log('isLoginCurrentUser', isLoginCurrentUser);
+    </script>
+    <script src="https://www.cuballama.com/viajes/resources/custom/js/libphonenumber-min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/frmwrk/multi-steps-form/script.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/custom/js/login.js"></script>
+
+    <script>
+        var xurlroot = "https://www.cuballama.com/viajes";
+        var xurlsite = "https://www.cuballama.com/viajes";
+        window.__emptyResults = 'No results for';
+    </script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/jquery.min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/js/bootstrap.min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/js/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/modal.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/parsley.min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/js/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/hresources/js/bootstrap-daterangepicker/locale/es.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/frmwrk/datepicker/custom.activity.js"></script>
+    <script src="https://www.cuballama.com/viajes/resources/frmwrk/datepicker/jquery.daterangepicker.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    <script src="https://www.cuballama.com/viajes/resources/vendor/intlTelInput/js/intlTelInput.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://assets.flex.twilio.com/releases/flex-webchat-ui/2.9.1/twilio-flex-webchat.min.js" integrity="sha512-yBmOHVWuWT6HOjfgPYkFe70bboby/BTj9TGHXTlEatWnYkW5fFezXqW9ZgNtuRUqHWrzNXVsqu6cKm3Y04kHMA==" crossorigin></script>
+    <script src="https://www.cuballama.com/viajes/resources/custom/js/twiliochat.js"></script>
+    <script type="application/javascript">
+
+        let callbackFinallyFingerprint = () => {
+            console.info("callbackFinallyFingerprint, empty");
+        }
+
+        function initFingerprintJS() {
+            const visitorId = localStorage.getItem('visitorId');
+            if (!visitorId) {
+                FingerprintJS.load({token: 'wkoC8U5xXuRxMezDGztI', endpoint: 'https://fp.cuballama.com'})
+                    .then(fp => fp.get())
+                    .then(result => {
+                        console.log('initFingerprintJS visitorId ---> ', result.visitorId)
+                        localStorage.setItem('visitorId', result.visitorId);
+                        callbackFinallyFingerprint();
+                    }).catch(error => {
+                    // todo sino visitorId => ??
+                    console.log('initFingerprintJS error ---> ', error)
+                    callbackFinallyFingerprint();
+                })
+            } else {
+                console.info(" initFingerprintJS -> else: visitorId ", visitorId);
+                setTimeout(() => {
+                    callbackFinallyFingerprint();
+                }, 300);
+            }
+        }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs-pro@3/dist/fp.min.js"
+            onload="initFingerprintJS()">
+    </script>
+
+    <script>
+        function openNav() {
+            document.getElementById("homeSidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("homeSidenav").style.width = "0";
+        }
+
+        $('a[data-href]').on('click', function (e) {
+            $('.loader-bg').show();
+            var lang_form = $('<form>', {
+                'action': $(this).data('href'),
+                'method': 'POST',
+                'target': '_top'
+            }).append(jQuery('<input>', {
+                    'name': 'language.currentPath',
+                    'value': $("#lanpath").val(),
+                    'type': 'hidden'
+                })
+            );
+
+            $("body").append(lang_form);
+
+            // send form
+            lang_form.submit();
+
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function() {
+
+$('#homeSidenav a.item').each(function(){
+$(this).removeClass('active');
+});
+
+            $('#navbar li').each(function(){
+$(this).removeClass('active');
+});
+
+            $('.activity-item').each(function(){
+
+$(this).addClass('active');
+});
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+
+            $('.h-link').on('click', function (e) {
+                $('.loader-bg').show();
+
+
+            })
+        });
+    </script>
+
+ <script>
+$(document).ready(function(){
+var myNavBar = {
+flagAdd: true,
+elements: [],
+init: function (elements) {
+this.elements = elements;
+},
+
+			add : function() {
+if(this.flagAdd) {
+for(var i=0; i < this.elements.length; i++) {
+document.getElementById(this.elements[i]).className += " fixed-theme";
+}
+					this.flagAdd = false;
+				}
+			},
+
+			remove: function() {
+for(var i=0; i < this.elements.length; i++) {
+document.getElementById(this.elements[i]).className =
+document.getElementById(this.elements[i]).className.replace( /(?:^|\s)fixed-theme(?!\S)/g , '' );
+}
+				this.flagAdd = true;
+			}
+		};
+		myNavBar.init(  [
+			"header",
+			"header-container",
+			"brand"
+		]);
+		function offSetManager(){
+var yOffset = 0;
+var currYOffSet = window.pageYOffset;
+
+if(yOffset < currYOffSet) {
+myNavBar.add();
+}
+			else if(currYOffSet == yOffset){
+myNavBar.remove();
+}
+		}
+		window.onscroll = function(e) {
+offSetManager();
+}
+			offSetManager();
+		});
+</script>
+
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDRa-FfGSD3Yjk3cmCX7BzeT2HAcU6ZfSs'></script>
+<script src="https://googlemaps.github.io/js-markerclustererplus/dist/index.min.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/material-dropdown/marka/js/marka.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/material-dropdown/js/dropdown-menuCuba.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/icheck.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/ion.rangeSlider.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/jquery-swapsies.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/jquery-typeahead-master/dist/jquery.typeahead.min.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/filtersCustomHotel.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/sortCustomHotel.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/mapsCustomHotel.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/frmwrk/typeaheadCustomHotel.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/js/typeahead.bundle.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/custom-lh.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/search-form-proxy.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/i18n/i18n.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/hotel-item.js"></script>
+<script src="https://www.cuballama.com/viajes/resources/hresources/js/jquery.lazy/jquery.lazy.min.js"></script>
+
+<script>
+
+    const defaultHotelImage = 'https://www.cuballama.com/viajes/resources/hresources/img/htl/default_hotel_image.jpeg';
+    const hotelRating = {
+        2: 'Nice!',
+        3: 'Nice!',
+        4: 'Very good!',
+        5: 'Exceptional!'
+    };
+    const hotelDataText = {
+        nights: 'nights',
+        night: 'nightday=day',
+        adults: 'adults',
+        adult: 'adult',
+        rooms: 'Rooms'
+    };
+
+
+    $(document).ready(function () {
+
+        $('.lazy').Lazy({
+            // placeholder:'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0jo6uBwADfAGCc17ZbQAAAABJRU5ErkJggg==',
+            // beforeLoad: function(element) {
+            //     console.log("beforeLoad");
+            //     console.log(element);
+            // },
+            onError: function (element) {
+                // called whenever an element could not be handled
+                console.log("on error");
+                element.attr('src', defaultHotelImage);
+            },
+        });
+
+        $(".go-swap").click(function () {
+            $(".origen").swap({
+                target: "destino", // Obligatorio. La ID del elemento con el que queremos intercambiar
+                opacity: "0.5", // Opcional. Configura la transparencia de los elementos durante el intercambio de posición
+                speed: 600, // Opcional. Tiempo en milisegundos que dura la transición
+                callback: function () { // Opcional. Función de llamada una vez termina la transición
+                    // alert("Swap Complete");
+                }
+            });
+        });
+
+        $(".go-swap-si").click(function () {
+            $("#origen-si").swap({
+                target: "destino-si", // Obligatorio. La ID del elemento con el que queremos intercambiar
+                opacity: "0.5", // Opcional. Configura la transparencia de los elementos durante el intercambio de posición
+                speed: 600, // Opcional. Tiempo en milisegundos que dura la transición
+                callback: function () { // Opcional. Función de llamada una vez termina la transición
+                    // alert("Swap Complete");
+                }
+            });
+        });
+
+        $('#dismiss, .overlay').on('click', function () {
+            $('#filterSidebar').removeClass('active');
+            $('.overlay').fadeOut();
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            //console.log("Hola");
+            $('#filterSidebar').addClass('active');
+            $('.overlay').fadeIn();
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+
+        $('.hidden-search .trigger .show').click(function () {
+            if ($(this).is('.open')) {
+                $(this).removeClass('open');
+                $(this).closest('.hidden-search').find('.flight-details').slideUp();
+            } else {
+                $(this).addClass('open');
+                $(this).closest('.hidden-search').find('.flight-details').slideDown();
+            }
+        });
+
+        $('#baggagePopover').popover();
+
+        $("[data-toggle=popover]").popover({
+            html: true,
+            content: function () {
+                var content = $(this).attr("data-popover-content");
+                return $(content).children(".popover-body").html();
+            },
+            title: function () {
+                var title = $(this).attr("data-popover-content");
+                return $(title).children(".popover-heading").html();
+            }
+        });
+
+        $('.loader-bg').hide();
+
+        $('body').on('click', '.act-detail', function (e) {
+            goToActivityDetail($(this).data('id'));
+        });
+
+    });
+
+    const formUrl = xurlroot + '/activity/details';
+    const goToActivityDetail = function (id) {
+        FormCreator.setAction(formUrl);
+        FormCreator.addField('attr_selected_activity', id);
+        $('.loader-bg').show();
+        FormCreator.sendForm();
+    }
+
+</script>
+</body>
+
+
+</html>

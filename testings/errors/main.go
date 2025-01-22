@@ -18,6 +18,10 @@ func (e *ErrCustom) Error() string {
 }
 
 func main() {
+	example2()
+}
+
+func example1() {
 	err := &ErrCustom{code: 12, val: "super"}
 
 	if customErr := new(*ErrCustom); errors.As(err, customErr) {
@@ -30,3 +34,17 @@ func main() {
 		fmt.Printf("customErr: %v\n", *customErr)
 	}
 }
+
+func example2() {
+	var err error
+
+	err = errors.New("this error is non important here")
+
+	if err := newnilerr(); err != nil {
+		// pass
+	}
+
+	fmt.Printf("err: %v\n", err)
+}
+
+func newnilerr() error { return nil }

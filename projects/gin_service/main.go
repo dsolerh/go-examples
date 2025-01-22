@@ -94,9 +94,10 @@ func main() {
 
 	// auth
 	router.POST("/signin", authH.SignInHandler)
+	router.POST("/refresh", authH.RefreshHandler)
 
 	authorized := router.Group("/")
-	authorized.Use(handlers.AuthMiddleware())
+	authorized.Use(authH.AuthMiddleware())
 
 	// define the routes
 	authorized.POST("/recipes", recipesH.CreateRecipeHandler)

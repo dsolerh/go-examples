@@ -2,7 +2,10 @@ module testings
 
 go 1.23.1
 
-require gopkg.in/yaml.v3 v3.0.1
+require (
+	github.com/gofrs/uuid/v5 v5.3.0
+	gopkg.in/yaml.v3 v3.0.1
+)
 
 require (
 	github.com/dsolerh/go-test-mono v0.1.1
