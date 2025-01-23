@@ -4,8 +4,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-
-	"github.com/rabbitmq/amqp091-go"
 )
 
 const queueName string = "jobQueue"
@@ -18,25 +16,21 @@ func handleError(err error, msg string) {
 }
 
 func main() {
-	jobServer := getServer(queueName)
+	jobServer := NewServer(queueName)
 
 	// Cleanup resources
 	defer jobServer.Channel.Close()
 	defer jobServer.Conn.Close()
 
 	// Start Workers
-	go func(conn *amqp091.Connection) {
-		workerProcess := Workers{
-			conn: conn,
-		}
-		workerProcess.run()
-	}(jobServer.Conn)
+	SpawnWorkers(jobServer.Conn, jobServer.redisClient)
 
 	router := http.NewServeMux()
 	// Attach handlers
 	router.HandleFunc("/job/database", jobServer.asyncDBHandler)
 	router.HandleFunc("/job/mail", jobServer.asyncMailHandler)
 	router.HandleFunc("/job/callback", jobServer.asyncCallbackHandler)
+	router.HandleFunc("/job/status", jobServer.statusHandler)
 
 	httpServer := &http.Server{
 		Handler:      router,

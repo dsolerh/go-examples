@@ -2,6 +2,7 @@ package main
 
 import (
 	"async_server/models"
+	"context"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -10,13 +11,15 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/rabbitmq/amqp091-go"
+	"github.com/redis/go-redis/v9"
 )
 
 // JobServer holds handler functions
 type JobServer struct {
-	Queue   amqp091.Queue
-	Channel *amqp091.Channel
-	Conn    *amqp091.Connection
+	Queue       amqp091.Queue
+	Channel     *amqp091.Channel
+	Conn        *amqp091.Connection
+	redisClient *redis.Client
 }
 
 func (s *JobServer) publish(msgType string, jsonBody []byte) error {
@@ -110,7 +113,23 @@ func (s *JobServer) asyncCallbackHandler(w http.ResponseWriter, r *http.Request)
 	}
 }
 
-func getServer(name string) JobServer {
+func (s *JobServer) statusHandler(w http.ResponseWriter,
+	r *http.Request) {
+	queryParams := r.URL.Query()
+	// fetch UUID from query
+	uuid := queryParams.Get("uuid")
+
+	w.Header().Set("Content-Type", "application/json")
+
+	jobStatus := s.redisClient.Get(r.Context(), uuid)
+	status := map[string]string{"uuid": uuid, "status": jobStatus.Val()}
+	response, err := json.Marshal(status)
+	handleError(err, "Cannot create response for client")
+
+	_, _ = w.Write(response)
+}
+
+func NewServer(name string) JobServer {
 	/*
 		Creates a server object and initiates
 		the Channel and Queue details to publish messages
@@ -128,5 +147,20 @@ func getServer(name string) JobServer {
 		nil,   // Extra args
 	)
 	handleError(err, "Job queue creation failed")
-	return JobServer{Conn: conn, Channel: channel, Queue: jobQueue}
+
+	ctx := context.Background()
+	client := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+	_, err = client.Ping(ctx).Result()
+	handleError(err, "Redis not ready")
+
+	return JobServer{
+		Conn:        conn,
+		Channel:     channel,
+		Queue:       jobQueue,
+		redisClient: client,
+	}
 }
