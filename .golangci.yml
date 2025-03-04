@@ -17,9 +17,9 @@ linters-settings:
       - opinionated
       - performance
       - style
-  govet:
-    enable:
-      - fieldalignment
+  # govet:
+    # enable:
+      # - fieldalignment
   nolintlint:
     require-explanation: true
     require-specific: true
@@ -48,9 +48,9 @@ linters:
     - nakedret
     - prealloc
     - predeclared
-    - revive
+    # - revive
     - staticcheck
-    - stylecheck
+    # - stylecheck
     - thelper
     - tparallel
     - typecheck

@@ -1,13 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"math"
 	"time"
 )
 
 func main() {
-	example3()
+	example4()
 }
 
 func example1() {
@@ -34,4 +35,13 @@ func example3() {
 	tt := time.Duration(t)*time.Millisecond - 10*time.Millisecond
 
 	fmt.Printf("tt: %s\n", tt)
+}
+
+func example4() {
+	averageScore := 0.75
+	pwr := float32(math.Pow(float64(averageScore-0.75), 0.4))
+	data, err := json.Marshal(map[string]any{"pwr": pwr})
+	fmt.Printf("pwr: %f\n", pwr)
+	fmt.Printf("data: %s\n", data)
+	fmt.Printf("err: %v\n", err)
 }
