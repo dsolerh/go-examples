@@ -17,6 +17,7 @@ use (
 	./projects/gin_service
 	./projects/links_r_us
 	./projects/painting-app
+	./projects/reservations_api
 	./projects/sqlc_tuto
 	./projects/tdd_api
 	./testings

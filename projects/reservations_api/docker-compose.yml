@@ -1,0 +1,32 @@
+services:
+  http:
+    build: 
+      context: .
+      target: test
+    environment:
+      DATABASE_URL: "postgres://admin:password@db:5432/restaurant?sslmode=disable"
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint:
+      - "/bin/sh"
+      - "-ecx"
+      - |
+        /migrate -source file://migrations -database "$$DATABASE_URL" up &&
+        /http-service
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: restaurant
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
