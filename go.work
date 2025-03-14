@@ -1,21 +1,22 @@
-go 1.23.3
+go 1.24.1
 
 use (
 	./aoc
-	./benchmarks //+replace:benchmarks
+	./benchmarks
 	./cli_projects
 	./code_generation
 	./common_patterns
 	./data_structures
 	./grpc_examples/route_guide
 	./grpc_examples/simple_service
-	./mocking_examples
+	./projects/mocking_examples
 	./projects/async_server
 	./projects/chores
 	./projects/clean_arc
 	./projects/event_driven/mallbots
 	./projects/gin_service
 	./projects/links_r_us
+	./projects/painting-app
 	./projects/sqlc_tuto
 	./projects/tdd_api
 	./testings
