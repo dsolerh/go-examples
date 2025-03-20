@@ -8,11 +8,12 @@ import (
 )
 
 func main() {
-	// err := exampleEcodeStream()
-	// if err != nil {
-	// 	fmt.Printf("err: %v\n", err)
-	// }
-	exampleNil()
+	// // err := exampleEcodeStream()
+	// // if err != nil {
+	// // 	fmt.Printf("err: %v\n", err)
+	// // }
+	// exampleNil()
+	exampleNested()
 }
 
 func exampleNil() {
@@ -115,4 +116,19 @@ func exampleEcodeStream() error {
 	}
 
 	return nil
+}
+
+func exampleNested() {
+	type nested struct {
+		P1 string `json:"p1"`
+	}
+	type a struct {
+		Nested nested `json:"-"`
+	}
+
+	_a := a{Nested: nested{P1: "super"}}
+
+	b, err := json.Marshal(&_a)
+	fmt.Printf("err: %v\n", err)
+	fmt.Printf("_a: %s\n", b)
 }
