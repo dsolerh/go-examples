@@ -1,6 +1,7 @@
 go 1.24.1
 
 use (
+	./algorithms
 	./aoc
 	./benchmarks
 	./cli_projects
@@ -9,15 +10,16 @@ use (
 	./data_structures
 	./grpc_examples/route_guide
 	./grpc_examples/simple_service
-	./projects/mocking_examples
 	./projects/async_server
 	./projects/chores
 	./projects/clean_arc
 	./projects/event_driven/mallbots
 	./projects/gin_service
 	./projects/links_r_us
+	./projects/mocking_examples
 	./projects/painting-app
 	./projects/reservations_api
+	./projects/schema_validator
 	./projects/sqlc_tuto
 	./projects/tdd_api
 	./testings
