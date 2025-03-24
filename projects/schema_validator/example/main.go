@@ -1,8 +1,9 @@
 package main
 
-import "errors"
-
-// "schema_validator/schemas"
+import (
+	"errors"
+	. "schema_validator/types"
+)
 
 func main() {
 	// export const PaymentAmount = function (options?: ObjectOptions) {
@@ -47,82 +48,23 @@ func main() {
 
 }
 
-// func Description(val string) any { return nil }
-// func Title(val string) any       { return nil }
-
-// func Minimum[T int | float64](val T) any { return nil }
-// func Maximum[T int | float64](val T) any { return nil }
-
-// func Items(val any) any     { return nil }
-// func Props(vals ...any) any { return nil }
-
-// func Literal[T int | float64 | string | bool](val T, opts ...any) any { return nil }
-// func Integer(opts ...any) any                                         { return nil }
-// func Number(opts ...any) any                                          { return nil }
-// func String(opts ...any) any                                          { return nil }
-// func Boolean(opts ...any) any                                         { return nil }
-
-// func Array(opts ...any) any  { return nil }
-// func Object(opts ...any) any { return nil }
-
-// func CustomType(opts ...any) any {
-// 	return Object(Props(
-// 		"val1", String(),
-// 		"val2", Integer(),
-// 	), opts)
-// }
-
-type LiteralOptions struct{}
-
-func (o *LiteralOptions) Description(s string) *LiteralOptions { return o }
-
-type NumberOptions struct{}
-
-func (o *NumberOptions) Description(s string) *NumberOptions { return o }
-func (o *NumberOptions) Minimum(val int) *NumberOptions      { return o }
-func (o *NumberOptions) Maximum(val int) *NumberOptions      { return o }
-
-type StringOptions struct{}
-
-func (o *StringOptions) Description(s string) *StringOptions { return o }
-
-type ArrayOptions struct{}
-
-func (o *ArrayOptions) Description(s string) *ArrayOptions { return o }
-
-type ObjectOptions struct{}
-
-func (o *ObjectOptions) Description(s string) *ObjectOptions { return o }
-
-func Literal(val any, opts ...*LiteralOptions) any            { return nil }
-func Number(opts ...*NumberOptions) any                       { return nil }
-func String(opts ...*StringOptions) any                       { return nil }
-func Array(typ any, opts ...*ArrayOptions) any                { return nil }
-func Object(props map[string]any, opts ...*ObjectOptions) any { return nil }
-
-type OProp struct {
-	key        string
-	value      any
-	isOptional bool
+func CustomObject(props ...*ObjectOptions) *ObjectSchemaBuilder {
+	return nil
 }
-
-func (p OProp) Optional() OProp { return p }
-
-func Props(props ...OProp) map[string]any { return nil }
-func Prop(key string, value any) OProp    { return OProp{key, value, false} }
-
-func CustomObject(opts *ObjectOptions) any { return nil }
 
 func variant3() {
 	var _ = Object(
 		Props(
-			Prop("literal", Literal(12, new(LiteralOptions).Description("just 12"))),
-			Prop("number", Number(new(NumberOptions).Description("").Maximum(12).Minimum(2))),
-			Prop("maybe", String(new(StringOptions).Description("maybe there"))).Optional(),
-			Prop("custom", CustomObject(new(ObjectOptions).Description("custom object"))),
-			Prop("array", Array(Number(), new(ArrayOptions).Description(""))),
+			Prop("literal", Literal(12, Options().Description("just 12").Literal())),
+			Prop("number", Number(Options().
+				Description("").Number().
+				Maximum(12).
+				Minimum(2))),
+			Prop("maybe", String(Options().Description("maybe there").String())).Optional(),
+			Prop("custom", CustomObject(Options().Description("custom object").Object())),
+			Prop("array", Array(Number(), Options().Description("").Array())),
 		),
-		new(ObjectOptions).Description(""),
+		Options().Description("").Object(),
 	)
 }
 

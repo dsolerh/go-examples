@@ -30,3 +30,21 @@ type NumericSchema[T NumericTypes] struct {
 	BaseSchema
 	NumericOptions[T]
 }
+
+type StringSchema struct {
+	BaseSchema
+	StringOptions
+}
+
+type ArraySchema struct {
+	BaseSchema
+	ArrayOptions
+	Items any `json:"items"`
+}
+
+type ObjectSchema struct {
+	BaseSchema
+	ObjectOptions
+	Properties map[string]any `json:"properties"`
+	Required   []string       `json:"required"`
+}

@@ -32,7 +32,7 @@ func TestLiteralWithOptions(t *testing.T) {
 	})
 	t.Run("should create schema with passed options", func(t *testing.T) {
 		is := assert.New(t)
-		op := LiteralOptions{BaseOptions{Description: "A description"}}
+		op := LiteralOptions{BaseOptions{TypeDescription: "A description"}}
 		s := Literal(0, &op)
 		is.Equal(s.schema.LiteralOptions, op)
 	})

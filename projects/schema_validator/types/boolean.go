@@ -5,7 +5,7 @@ type BooleanOptions struct {
 }
 
 func (o *BooleanOptions) Description(s string) *BooleanOptions {
-	o.BaseOptions.Description = s
+	o.BaseOptions.TypeDescription = s
 	return o
 }
 

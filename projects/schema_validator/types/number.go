@@ -8,8 +8,11 @@ type NumericOptions[T NumericTypes] struct {
 	ExclMaxVal *T `json:"exclusiveMaximum,omitempty"`
 }
 
+type NumberOptions = NumericOptions[float64]
+type IntegerOptions = NumericOptions[int]
+
 func (o *NumericOptions[T]) Description(s string) *NumericOptions[T] {
-	o.BaseOptions.Description = s
+	o.BaseOptions.TypeDescription = s
 	return o
 }
 
@@ -50,8 +53,8 @@ type NumericSchemaBuilder[T NumericTypes] struct {
 }
 
 // func Boolean(opts ...*BooleanOptions) *BooleanSchemaBuilder {
-func Integer(opts ...*NumericOptions[int]) *NumericSchemaBuilder[int] {
-	var nopts NumericOptions[int]
+func Integer(opts ...*IntegerOptions) *NumericSchemaBuilder[int] {
+	var nopts IntegerOptions
 	if len(opts) != 0 && opts[0] != nil {
 		nopts = *opts[0]
 	}
@@ -63,8 +66,8 @@ func Integer(opts ...*NumericOptions[int]) *NumericSchemaBuilder[int] {
 	}
 }
 
-func Number(opts ...*NumericOptions[float64]) *NumericSchemaBuilder[float64] {
-	var nopts NumericOptions[float64]
+func Number(opts ...*NumberOptions) *NumericSchemaBuilder[float64] {
+	var nopts NumberOptions
 	if len(opts) != 0 && opts[0] != nil {
 		nopts = *opts[0]
 	}
@@ -75,3 +78,5 @@ func Number(opts ...*NumericOptions[float64]) *NumericSchemaBuilder[float64] {
 		},
 	}
 }
+
+func (sb *NumericSchemaBuilder[T]) Schema() any { return sb.schema }

@@ -7,7 +7,7 @@ type LiteralOptions struct {
 }
 
 func (o *LiteralOptions) Description(s string) *LiteralOptions {
-	o.BaseOptions.Description = s
+	o.BaseOptions.TypeDescription = s
 	return o
 }
 
@@ -42,9 +42,7 @@ func Literal[T LiteralTypes](val T, opts ...*LiteralOptions) *LiteralSchemaBuild
 	}
 }
 
-func (sb *LiteralSchemaBuilder) Schema() any {
-	return sb.schema
-}
+func (sb *LiteralSchemaBuilder) Schema() any { return sb.schema }
 
 func (sb *LiteralSchemaBuilder) ValidationRule(ident string) string {
 	// returns an expresion that if evaluated in golang will return true
