@@ -4,15 +4,16 @@ use (
 	./algorithms
 	./aoc
 	./benchmarks
-	./cli_projects
-	./code_generation
 	./common_patterns
 	./data_structures
-	./grpc_examples/route_guide
-	./grpc_examples/simple_service
+	./games/euchre
+	./projects/grpc_examples/route_guide
+	./projects/grpc_examples/simple_service
 	./projects/async_server
 	./projects/chores
 	./projects/clean_arc
+	./projects/cli
+	./projects/code_generation
 	./projects/event_driven/mallbots
 	./projects/gin_service
 	./projects/links_r_us
