@@ -18,8 +18,8 @@ linters-settings:
       - performance
       - style
   # govet:
-    # enable:
-      # - fieldalignment
+  # enable:
+  # - fieldalignment
   nolintlint:
     require-explanation: true
     require-specific: true
