@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Manga/Manhua Reader</title>
+    </head>
+    <body>
+        <h1>Mangas</h1>
+        <ul>
+            {{range $index, $element := .Mangas}}
+            <li>
+                <div>{{ .Name }}</div>
+                <a href="{{ .Url }}">Read</a>
+            </li>
+            {{end}}
+        </ul>
+    </body>
+</html>

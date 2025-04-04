@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Manga/Manhua Reader</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            div.container {
+                display: flex;
+                flex-flow: column;
+                margin: 0;
+            }
+            div.footer {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                margin: 10px 0;
+            }
+            a.next {
+                box-sizing: border-box;
+                text-decoration: none;
+                display: block;
+                font-size: 5rem;
+                rotate: 90deg;
+                height: 75px;
+                line-height: 0.75;
+                width: 75px;
+                text-align: center;
+                border-radius: 50%;
+                background: black;
+                color: white;
+            }
+
+            /* Extra small devices (phones, 600px and down) */
+            @media only screen and (max-width: 600px) {
+            }
+
+            /* Small devices (portrait tablets and large phones, 600px and up) */
+            @media only screen and (min-width: 600px) {
+            }
+
+            /* Medium devices (landscape tablets, 768px and up) */
+            @media only screen and (min-width: 768px) {
+                div.container {
+                    display: flex;
+                    flex-flow: column;
+                    margin: 0;
+                }
+            }
+
+            /* Extra large devices (large laptops and desktops, 1200px and up) */
+            @media only screen and (min-width: 1024px) {
+                div.container {
+                    display: flex;
+                    flex-flow: column;
+                    margin: 0 25%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center">Chapter {{ .Chapter }}</h1>
+
+        <div class="container">
+            {{range $index, $element := .Images}}
+            <img src="{{ $element }}" />
+            {{end}}
+        </div>
+        <div class="footer">
+            {{ if .IsLast }}
+            <a href="/">Home</a>
+            {{ else }}
+            <a href="{{.NextUrl}}" class="next"> &raquo; </a>
+            {{ end }}
+        </div>
+    </body>
+</html>

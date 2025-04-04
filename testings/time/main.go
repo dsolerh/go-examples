@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"time"
 )
 
 func main() {
 	// testDuration(fmt.Sprintf("%dh", 24*5))
 	// testDuration(fmt.Sprintf("%dh", 24*4))
-	maxD := time.Duration(math.MaxInt64)
-	fmt.Printf("maxD: %s\n", maxD)
+	// maxD := time.Duration(math.MaxInt64)
+	// fmt.Printf("maxD: %s\n", maxD)
+	now := time.Now()
+	fmt.Printf("now: %s\n", now)
 }
 
 func test1() {

@@ -13,7 +13,35 @@ func main() {
 	// // 	fmt.Printf("err: %v\n", err)
 	// // }
 	// exampleNil()
-	exampleNested()
+	// exampleNested()
+	// exampleArrayFixed()
+
+	// for i := range 10 {
+	// 	fmt.Printf("i: %d i%%2: %d\n", i, i%4)
+	// }
+	//
+	type C uint16
+	var c C
+	fmt.Printf("c: %016b\n", c)
+	c = 1<<8 | 10
+	fmt.Printf("c: %016b\n", c)
+
+	fmt.Printf("c: %016b\n", c&0xFF)
+	fmt.Printf("c: %016b\n", 0xFF)
+}
+
+func exampleArrayFixed() {
+	type subSchema struct {
+		Name string `json:"name,omitempty"`
+	}
+	type schema struct {
+		Arr4 [4]subSchema `json:"arr,omitempty"`
+	}
+	val := schema{
+		Arr4: [4]subSchema{},
+	}
+	data, _ := json.Marshal(&val)
+	fmt.Printf("data: %s\n", data)
 }
 
 func exampleNil() {
