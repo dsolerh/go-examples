@@ -6,9 +6,9 @@ require (
 	github.com/charmbracelet/bubbles v0.21.0
 	github.com/charmbracelet/bubbletea v1.3.4
 	github.com/charmbracelet/lipgloss v1.1.0
-	github.com/dsolerh/go-test-mono/foo v0.1.0
-	github.com/dsolerh/go-test-mono/publisher v0.0.13
-	github.com/dsolerh/go-test-mono/utils v0.1.0
+	github.com/dsolerh/go-test-mono/foo v0.1.4
+	github.com/dsolerh/go-test-mono/publisher v0.1.4
+	github.com/dsolerh/go-test-mono/utils v0.1.5
 	github.com/gofrs/uuid/v5 v5.3.0
 	github.com/rivo/tview v0.0.0-20250330220935-949945f8d922
 	github.com/stretchr/testify v1.10.0
@@ -42,8 +42,6 @@ require (
 )
 
 require (
-	github.com/Masterminds/semver/v3 v3.3.1 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
-	golang.org/x/mod v0.24.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
