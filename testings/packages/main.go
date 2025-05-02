@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/dsolerh/go-test-mono/first"
-	"github.com/dsolerh/go-test-mono/second"
-	third "github.com/dsolerh/go-test-mono/third/src"
+	"github.com/dsolerh/go-test-mono/foo"
+	"github.com/dsolerh/go-test-mono/publisher"
+	"github.com/dsolerh/go-test-mono/utils"
 )
 
 func main() {
-	fmt.Printf("first.Version(): %v\n", first.Version())
-	fmt.Printf("second.Version(): %v\n", second.Version())
-	fmt.Printf("third.Version(): %v\n", third.Version())
+	fmt.Printf("utils.Version(): %v\n", utils.Version())
+	fmt.Printf("publisher.Version(): %v\n", publisher.Version())
+	fmt.Printf("foo.Version(): %v\n", foo.Version())
 }
