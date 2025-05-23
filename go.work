@@ -7,6 +7,7 @@ use (
 	./common_patterns
 	./data_structures
 	./projects/async_server
+	./projects/audibles
 	./projects/chores
 	./projects/clean_arc
 	./projects/cli

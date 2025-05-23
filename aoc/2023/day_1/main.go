@@ -30,7 +30,7 @@ func calculateSum(scanner *bufio.Scanner, computeNumberFn func([]byte) int64) in
 func computeNumberV1(line []byte) int64 {
 	numbers := make([]byte, 0)
 
-	for current := 0; current < len(line); current++ {
+	for current := range line {
 		if isDigit(line[current]) {
 			numbers = append(numbers, line[current])
 		}
@@ -64,7 +64,7 @@ func computeNumberV2(line []byte) int64 {
 }
 
 func firstNumber(line []byte) int64 {
-	for current := 0; current < len(line); current++ {
+	for current := range line {
 		if current != 0 {
 			currentWord := line[:current]
 			index := slices.IndexFunc(NumWords, func(numWord []byte) bool {

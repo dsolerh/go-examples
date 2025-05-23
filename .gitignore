@@ -7,3 +7,5 @@ concurrency.course/finalProject/cmd/web/cover.out
 hack_book/chapter5/subdomain_guesser/subdomain_guesser
 .DS_Store
 projects/mangascrapper/scrapper_tests/manga_scraps
+projects/audibles/cache
+projects/audibles/downloads
