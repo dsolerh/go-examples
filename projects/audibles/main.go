@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io"
 	"net/http"
@@ -13,14 +14,19 @@ import (
 	"time"
 )
 
+var book_url = flag.String("bu", "", "book url")
+var book_name = flag.String("bn", "", "book name")
+var chapter_format = flag.String("cf", "Chapter %03d", "book name")
+var timeout = flag.Duration("t", 2*time.Minute, "book name")
+
 func main() {
-	book := "edgedancer"
-	chapters, err := getBookChapters(book)
+	flag.Parse()
+	chapters, err := getBookChapters(*book_url)
 	if err != nil {
 		fmt.Printf("could not open the book file err: %v\n", err)
 		return
 	}
-	downloadAudioBook(book, chapters)
+	downloadAudioBook(*book_name, *chapter_format, *timeout, chapters)
 
 }
 
@@ -88,7 +94,6 @@ func getPageSrc(book string) ([]byte, error) {
 		return file, nil
 	}
 
-	// https://tokybook.com/words-of-radiance-audiobook
 	client := &http.Client{
 		Timeout: 30 * time.Second,
 	}
@@ -113,8 +118,6 @@ func getPageSrc(book string) ([]byte, error) {
 		return nil, err
 	}
 
-	fmt.Printf("buff.String(): %v\n", buff.String())
-
 	return buff.Bytes(), nil
 }
 
@@ -137,11 +140,11 @@ type downloadData struct {
 	name string
 }
 
-func downloadAudioBook(name string, chapters []chapterData) {
+func downloadAudioBook(name string, chapter_format string, timeout time.Duration, chapters []chapterData) {
 	downloadChan := make(chan downloadData, 5)
 	lr := newLinkRetriever()
 	go func() {
-		for _, chap := range chapters {
+		for idx, chap := range chapters {
 			chapNo, err := strconv.Atoi(chap.ChapterId)
 			if err != nil {
 				fmt.Printf("could not parse the chapter err: %v\n", err)
@@ -151,17 +154,25 @@ func downloadAudioBook(name string, chapters []chapterData) {
 			if err != nil {
 				fmt.Printf("could not retrieve the chapter url err: %v\n", err)
 			}
+			chapName := chap.Name
+			if chapter_format != "" {
+				chapName = fmt.Sprintf(chapter_format, idx+1)
+			}
 			downloadChan <- downloadData{
 				url:  link,
-				name: fmt.Sprintf("downloads/%s/%s.mp3", name, chap.Name),
+				name: fmt.Sprintf("downloads/%s/%s.mp3", name, chapName),
 			}
 		}
 		close(downloadChan)
 	}()
 
+	opts := downloadOpts{
+		timeout: timeout,
+	}
+
 	failed := []downloadData{}
 	for downloadInfo := range downloadChan {
-		err := downloadFile(downloadInfo.url, downloadInfo.name)
+		err := downloadFile(downloadInfo.url, downloadInfo.name, opts)
 		if err != nil {
 			fmt.Printf("\nDownload failed for %s: %v\n", downloadInfo.url, err)
 			failed = append(failed, downloadInfo)
@@ -172,7 +183,7 @@ func downloadAudioBook(name string, chapters []chapterData) {
 	// retry the rejected
 	for _, downloadInfo := range failed {
 		fmt.Println("retry failed downloads")
-		err := downloadFile(downloadInfo.url, downloadInfo.name)
+		err := downloadFile(downloadInfo.url, downloadInfo.name, opts)
 		if err != nil {
 			fmt.Printf("\nDownload failed for %s: %v\n", downloadInfo.url, err)
 			stillFailed = append(stillFailed, downloadInfo)

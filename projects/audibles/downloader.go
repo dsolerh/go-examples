@@ -60,11 +60,15 @@ func formatBytes(bytes int64) string {
 	return fmt.Sprintf("%.1f %cB", float64(bytes)/float64(div), "KMGTPE"[exp])
 }
 
-func downloadFile(url, filename string) error {
+type downloadOpts struct {
+	timeout time.Duration
+}
+
+func downloadFile(url, filename string, opts downloadOpts) error {
 	fmt.Println("=== Starting Download ===")
 	// Create HTTP client with timeout
 	client := &http.Client{
-		Timeout: 30 * time.Second,
+		Timeout: opts.timeout,
 	}
 
 	// Make the request
