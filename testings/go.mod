@@ -10,9 +10,12 @@ require (
 	github.com/dsolerh/go-test-mono/publisher v0.1.4
 	github.com/dsolerh/go-test-mono/utils v0.1.5
 	github.com/gofrs/uuid/v5 v5.3.0
+	github.com/invopop/jsonschema v0.14.0
 	github.com/rabbitmq/amqp091-go v1.10.0
 	github.com/rivo/tview v0.0.0-20250330220935-949945f8d922
-	github.com/stretchr/testify v1.10.0
+	github.com/rs/zerolog v1.35.1
+	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2
+	github.com/stretchr/testify v1.11.1
 	go.uber.org/zap v1.27.0
 	gopkg.in/yaml.v3 v3.0.1
 )
@@ -44,7 +47,12 @@ require (
 )
 
 require (
+	github.com/bahlo/generic-list-go v0.2.0 // indirect
+	github.com/buger/jsonparser v1.1.2 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/pb33f/ordered-map/v2 v2.3.1 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
+	go.yaml.in/yaml/v4 v4.0.0-rc.2 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )

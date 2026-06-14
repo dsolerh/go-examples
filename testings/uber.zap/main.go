@@ -46,7 +46,31 @@ func main() {
 
 	logger := zap.New(core, options...)
 
+	type Cs struct {
+		Id   []byte
+		Vars map[string]string
+		Arr  []Cs
+	}
+
 	anything := Anything{Data: "some data", num: 42}
-	logger.Debug("WOrks", zap.Any("any", anything), zap.Object("obj", AL(anything)))
+	arrstr := []string{"s1", "s2"}
+	cs := &Cs{
+		Id: []byte("some"),
+		Vars: map[string]string{
+			"a": "letter a",
+		},
+		Arr: []Cs{
+			{Id: []byte("some1")},
+			{Id: []byte("some2")},
+		},
+	}
+	logger.Debug(
+		"WOrks",
+		zap.Any("any", anything),
+		zap.Any("any_ptr", &anything),
+		zap.Any("arrstr", arrstr),
+		zap.Any("cs", cs),
+		zap.Object("obj", AL(anything)),
+	)
 	logger.Info("Somethig else")
 }
