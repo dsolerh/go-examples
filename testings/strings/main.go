@@ -14,19 +14,20 @@ import (
 )
 
 func main() {
-	strs := []string{"eat", "tea", "tan", "ate", "nat", "bat", "teacup", "peacut"}
-	anagramsGrouped := map[string][]string{}
-	for _, word := range strs {
-		anaKey := getAnaKey(word)
-		anagramsGrouped[anaKey] = append(anagramsGrouped[anaKey], word)
-	}
+	fmt.Printf("'%s' < '%s' => %t\n", "nakama-0", "nakama-1", "nakama-0" < "nakama-1")
+	// strs := []string{"eat", "tea", "tan", "ate", "nat", "bat", "teacup", "peacut"}
+	// anagramsGrouped := map[string][]string{}
+	// for _, word := range strs {
+	// 	anaKey := getAnaKey(word)
+	// 	anagramsGrouped[anaKey] = append(anagramsGrouped[anaKey], word)
+	// }
 
-	anagrams := [][]string{}
-	for _, groupedAnagrams := range anagramsGrouped {
-		anagrams = append(anagrams, groupedAnagrams)
-	}
+	// anagrams := [][]string{}
+	// for _, groupedAnagrams := range anagramsGrouped {
+	// 	anagrams = append(anagrams, groupedAnagrams)
+	// }
 
-	fmt.Printf("anagrams: %v\n", anagrams)
+	// fmt.Printf("anagrams: %v\n", anagrams)
 }
 
 func getAnaKey(word string) string {

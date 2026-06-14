@@ -27,4 +27,6 @@ use (
 	./projects/sqlc_tuto
 	./projects/tdd_api
 	./testings
+	./tools/analytics_generator
+	./tools/modcmp
 )

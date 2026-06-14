@@ -1,5 +1,7 @@
 package collections
 
+import "slices"
+
 func Range(start, end int) []int {
 	vals := make([]int, end-start)
 	for i := 0; start < end; i++ {
@@ -19,12 +21,7 @@ func Every[T any, S ~[]T](s S, fn func(T) bool) bool {
 }
 
 func Some[T any, S ~[]T](s S, fn func(T) bool) bool {
-	for _, v := range s {
-		if fn(v) {
-			return true
-		}
-	}
-	return false
+	return slices.ContainsFunc(s, fn)
 }
 
 func Take[T any, S ~[]T](s S, n int) []T {
