@@ -8,6 +8,7 @@ import (
 func main() {
 	encodeMap()
 	encodeList()
+	encodeArray()
 }
 
 type IntConst int
@@ -64,4 +65,22 @@ func (m IntMap[T]) MarshalJSON() ([]byte, error) {
 		tm[k.String()] = v
 	}
 	return json.Marshal(&tm)
+}
+
+
+func encodeArray() {
+	fmt.Println("encodeArray")
+	type payload struct{
+		Array0 [0]int `json:"array_0"`
+		Array2 [2]int `json:"array_2"`
+		Array4 [4]int `json:"array_4"`
+	}
+	var value = payload{
+		Array0: [0]int{},
+		Array2: [2]int{},
+		Array4: [4]int{},
+	}
+	data, err := json.Marshal(&value)
+	fmt.Printf("err: %v\n", err)
+	fmt.Printf("data: %s\n", data)
 }

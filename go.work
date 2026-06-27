@@ -28,5 +28,4 @@ use (
 	./projects/tdd_api
 	./testings
 	./tools/analytics_generator
-	./tools/modcmp
 )
