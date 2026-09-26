@@ -56,17 +56,17 @@ func (t trie) Size() int64 {
 	return size
 }
 
-// Empty implements TrieNode.
+// Empty implements Node.
 func (t trie) Empty() bool {
 	return t == nil
 }
 
-// Last implements TrieNode.
+// Last implements Node.
 func (t trie) Last() bool {
 	return t != nil && len(t) == 0
 }
 
-// Rune implements Trie.
+// Node implements Trie.
 func (t trie) Node(r TrieKey) Node {
 	return t[r]
 }

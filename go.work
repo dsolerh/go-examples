@@ -1,4 +1,4 @@
-go 1.24.1
+go 1.27.0
 
 use (
 	./algorithms
@@ -14,6 +14,7 @@ use (
 	./projects/code_generation
 	./projects/euchre
 	./projects/event_driven/mallbots
+	./projects/game_server
 	./projects/gin_service
 	./projects/grpc_examples/route_guide
 	./projects/grpc_examples/simple_service
@@ -21,6 +22,8 @@ use (
 	./projects/links_r_us
 	./projects/mangascrapper
 	./projects/mocking_examples
+	./projects/nakama-go-client
+	./projects/nakama-go-client/tests
 	./projects/painting-app
 	./projects/reservations_api
 	./projects/schema_validator
