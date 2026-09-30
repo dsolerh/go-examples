@@ -1,11 +1,11 @@
 go 1.27.0
 
 use (
-	./algorithms
 	./aoc
 	./benchmarks
-	./common_patterns
-	./data_structures
+	./old_samples/algorithms
+	./old_samples/common_patterns
+	./old_samples/data_structures
 	./projects/async_server
 	./projects/audibles
 	./projects/chores
@@ -21,6 +21,7 @@ use (
 	./projects/japlearn
 	./projects/links_r_us
 	./projects/mangascrapper
+	./projects/microservices/services/auth
 	./projects/mocking_examples
 	./projects/nakama-go-client
 	./projects/nakama-go-client/tests
